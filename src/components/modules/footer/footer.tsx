@@ -10,6 +10,7 @@ import {
   FaTelegramPlane,
   FaWhatsapp,
 } from "react-icons/fa";
+import Article from "./article";
 
 export default function Footer({}) {
   return (
@@ -50,27 +51,20 @@ export default function Footer({}) {
 
         <section className="mx-auto">
           <h2 className="font-mono text-2xl font-bold">جدیدترین مقاله ها</h2>
-          <Link
-            href="#"
-            className="flex items-center gap-2 my-3 py-2 border-b border-slate-700"
-          >
-            <Image alt="sss" src="/hot chocolate.jpg" width={80} height={80} />
-            <div>
-              <p>تحقیق ژنوم پیچیده قهوه عربیکا</p>
-              <sub>28 بهمن 1402 بدون دیدگاه</sub>
-            </div>
-          </Link>
-          <Link
-            href="#"
-            className="flex items-center gap-2 my-3 py-2 border-b border-slate-700"
-          >
-            <Image alt="sss" src="/hot chocolate.jpg" width={80} height={80} />
-            <div>
-              <p>تحقیق ژنوم پیچیده قهوه عربیکا</p>
-              <sub>28 بهمن 1402 بدون دیدگاه</sub>
-            </div>
-          </Link>
+          <Article
+            src="#"
+            imgUrl="/hot chocolate.jpg"
+            title="تحقیق ژنوم پیچیده قهوه عربیکا"
+            sub="28 بهمن 1402 بدون دیدگاه"
+          />
+          <Article
+            src="#"
+            imgUrl="/hot chocolate.jpg"
+            title="تحقیق ژنوم پیچیده قهوه عربیکا"
+            sub="28 بهمن 1402 بدون دیدگاه"
+          />
         </section>
+
         <section className="mx-auto">
           <h2 className="font-mono text-2xl font-bold">دسترسی سریع</h2>
           <Link href="#" className="block">
@@ -80,7 +74,7 @@ export default function Footer({}) {
             ثبت نظرات و شکایات
           </Link>
           <Link href="#" className="block">
-            حفظ حریم شخصی{" "}
+            حفظ حریم شخصی
           </Link>
           <Link href="#" className="block">
             دیکشنری قهوه
@@ -95,16 +89,18 @@ export default function Footer({}) {
             باشگاه مشتریان
           </Link>
         </section>
+
         <section className="mx-auto">
           <h2 className="font-mono text-2xl font-bold">ساعات کاری</h2>
           <div>شنبه - چهارشنبه</div>
           <div>PM 8.00 -AM 8.00 </div>
           <div>پنج شنبه - جمعه</div>
           <div>PM 2.00 -PM 8.00 </div>
+          <Image src="/namad.png" alt="namad" width="150" height="150" />
         </section>
       </div>
       <div className="border-t-[1px] border-slate-100 text-center py-4">
-        © 2024 تمام حقوق متعلق است به
+        © 2024 تمام حقوق متعلق است به{" "}
         <span className="font-bold">مرضیه منشی زاده کریمی </span> | طراحی و اجرا{" "}
         <span className="font-bold">مرضیه منشی زاده کریمی </span>{" "}
       </div>

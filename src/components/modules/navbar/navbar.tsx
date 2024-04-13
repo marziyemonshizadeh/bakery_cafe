@@ -13,12 +13,12 @@ type Props = {};
 
 export default function Navbar({}: Props) {
   return (
-    <nav className="absolute z-50 w-full">
+    <nav className="absolute z-50 w-full select-none">
       <main className="flex justify-between items-center bg-orange-200 p-1 px-4 text-sm m-6 lg:mx-16 shadow-md rounded-3xl">
         {/* ......right........ */}
 
         <div className="flex items-center gap-3">
-          <FaBars className="w-5 h-5 text-orange-950 md:hidden inline-flex" />
+          <FaBars className="w-5 h-5 text-orange-950 lg:hidden inline-flex" />
           <Link href="/">
             <Image
               alt="cooffee time"
@@ -32,7 +32,7 @@ export default function Navbar({}: Props) {
         {/* md:inline-flex hidden */}
         {/* ......center........ */}
 
-        <ul className="relative font-bold font-sans inline-flex flex-row gap-6">
+        <ul className="relative font-bold font-sans flex-row gap-6  hidden lg:inline-flex">
           <li>
             <Link href="#" className="m-2">
               صفحه اصلی
@@ -51,7 +51,7 @@ export default function Navbar({}: Props) {
             </Link>
             <div
               id="dropdownDots"
-              className="hidden group-hover:block hover:block absolute top-[21px] bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
+              className="hidden group-hover:block hover:block absolute top-5 bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
             >
               <ul
                 className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -62,7 +62,7 @@ export default function Navbar({}: Props) {
                     href="/p-user/orders"
                     className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    سفارشات
+                    نان
                   </Link>
                 </li>
                 <li>
@@ -70,7 +70,23 @@ export default function Navbar({}: Props) {
                     href="/p-user/tickets"
                     className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    تیکت های پشتیبانی
+                    قهوه
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/p-user/tickets"
+                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    شیرینی
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/p-user/tickets"
+                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    نوشیدنی
                   </Link>
                 </li>
               </ul>
@@ -105,32 +121,28 @@ export default function Navbar({}: Props) {
               وبلاگ
               <FaAngleDown className="mt-1 group-hover:rotate-180 transition-all" />
             </Link>
-            <div
+            <ul
               id="dropdownDots"
-              className="hidden group-hover:block hover:block absolute top-[21px] bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
+              className="py-2 text-sm text-gray-700 dark:text-gray-200 hidden group-hover:block hover:block absolute top-5 bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
+              aria-labelledby="dropdownMenuIconButton"
             >
-              <ul
-                className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownMenuIconButton"
-              >
-                <li>
-                  <Link
-                    href="/p-user/orders"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    سفارشات
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/p-user/tickets"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    تیکت های پشتیبانی
-                  </Link>
-                </li>
-              </ul>
-            </div>
+              <li>
+                <Link
+                  href="/p-user/orders"
+                  className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  آموزش{" "}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/p-user/tickets"
+                  className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  اخبار و مقالات{" "}
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
             <Link href="#" className="flex items-center">
@@ -156,7 +168,7 @@ export default function Navbar({}: Props) {
             </Link>
             <div
               id="dropdownDots"
-              className="hidden group-hover:block hover:block absolute top-[21px] bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
+              className="hidden group-hover:block hover:block absolute top-5 bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
             >
               <ul
                 className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -167,7 +179,7 @@ export default function Navbar({}: Props) {
                     href="/p-user/orders"
                     className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    سفارشات
+                    شرایط و قوانین
                   </Link>
                 </li>
                 <li>
@@ -175,15 +187,7 @@ export default function Navbar({}: Props) {
                     href="/p-user/tickets"
                     className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    تیکت های پشتیبانی
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/p-user/comments"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    کامنت ها
+                    ثبت شکایات
                   </Link>
                 </li>
               </ul>
@@ -206,56 +210,52 @@ export default function Navbar({}: Props) {
               حساب کاربری
               <FaAngleDown className="mt-1 group-hover:rotate-180 transition-all" />
             </Link>
-            <div
+            <ul
               id="dropdownDots"
-              className="hidden group-hover:block hover:block absolute top-[21px] bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg  w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
+              className="py-2 text-sm text-gray-700 dark:text-gray-200 hidden group-hover:block hover:block absolute top-5 bg-orange-50  z-10 divide-ybg-orange-50 divide-orange-100 rounded-lg  w-44 shadow-sm shadow-orange-600 dark:bg-gray-700 dark:divide-gray-600"
+              aria-labelledby="dropdownMenuIconButton"
             >
-              <ul
-                className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownMenuIconButton"
-              >
-                <li>
-                  <Link
-                    href="/p-user/orders"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    سفارشات
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/p-user/tickets"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    تیکت های پشتیبانی
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/p-user/comments"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    کامنت ها
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/p-user/favorites"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    علاقه مندی ها
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/p-user/account-details"
-                    className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    جزئیات اکانت{" "}
-                  </Link>
-                </li>
-              </ul>
-            </div>
+              <li>
+                <Link
+                  href="/p-user/orders"
+                  className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  سفارشات
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/p-user/tickets"
+                  className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  تیکت های پشتیبانی
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/p-user/comments"
+                  className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  کامنت ها
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/p-user/favorites"
+                  className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  علاقه مندی ها
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/p-user/account-details"
+                  className="block px-4 py-2 hover:bg-orange-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  جزئیات اکانت{" "}
+                </Link>
+              </li>
+            </ul>
           </li>
         </ul>
         {/* ......left........ */}
