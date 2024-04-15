@@ -18,57 +18,57 @@ export default function Header({}) {
         <SwiperSlide
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/1.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/images/header/1.jpg")',
           }}
-          className="bg-no-repeat text-lg flex items-center justify-center bg-cover"
+          className="bg-no-repeat text-lg bg-cover"
         ></SwiperSlide>
 
         <SwiperSlide
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/2.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/images/header/2.jpg")',
           }}
-          className="bg-no-repeat text-lg flex items-center justify-center bg-cover"
+          className="bg-no-repeat text-lg bg-cover"
         ></SwiperSlide>
 
         <SwiperSlide
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/3.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/images/header/3.jpg")',
           }}
-          className="bg-no-repeat text-lg flex items-center justify-center bg-cover"
+          className="bg-no-repeat text-lg bg-cover"
         ></SwiperSlide>
 
         <SwiperSlide
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/4.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/images/header/4.jpg")',
           }}
-          className="bg-no-repeat text-lg flex items-center justify-center bg-cover"
+          className="bg-no-repeat text-lg bg-cover"
         ></SwiperSlide>
 
         <SwiperSlide
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/5.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/images/header/5.jpg")',
           }}
-          className="bg-no-repeat text-lg flex items-center justify-center bg-cover"
+          className="bg-no-repeat text-lg bg-cover"
         ></SwiperSlide>
 
         <SwiperSlide
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/6.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/images/header/6.jpg")',
           }}
-          className="bg-no-repeat text-lg flex items-center justify-center bg-cover"
+          className="bg-no-repeat text-lg bg-cover"
         ></SwiperSlide>
 
         <SwiperSlide
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/7.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/images/header/7.jpg")',
           }}
-          className="bg-no-repeat text-lg flex items-center justify-center bg-cover"
+          className="bg-no-repeat text-lg bg-cover"
         ></SwiperSlide>
       </Swiper>
     </header>
