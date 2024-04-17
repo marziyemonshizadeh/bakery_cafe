@@ -1,7 +1,8 @@
 "use client";
+
 import "swiper/css";
 import "swiper/css/navigation";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Header({}) {
@@ -9,11 +10,11 @@ export default function Header({}) {
     <header className="relative">
       <Swiper
         rewind={true}
-        // navigation={true}
+        navigation={true}
         loop={true}
         autoplay={{ delay: 4000 }}
-        modules={[Autoplay]}
-        className="mySwiper w-full h-screen"
+        modules={[Navigation, Autoplay]}
+        className="mySwiper home-slider w-full h-screen"
       >
         <SwiperSlide
           style={{
