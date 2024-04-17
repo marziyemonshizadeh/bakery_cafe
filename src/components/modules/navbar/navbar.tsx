@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   FaAngleDown,
   FaBars,
@@ -12,9 +14,34 @@ import { MdWbSunny } from "react-icons/md";
 type Props = {};
 
 export default function Navbar({}: Props) {
+  const [fixToTop, setfixToTop] = useState(false);
+  useEffect(() => {
+    const fixNavToTop = () => {
+      // show y scroll
+      const surrentScroll = window.pageYOffset;
+      console.log("surrentScroll", surrentScroll);
+
+      if (surrentScroll > 850) {
+        setfixToTop(true);
+      } else {
+        setfixToTop(false);
+      }
+    };
+    window.addEventListener("scroll", fixNavToTop);
+    // clean up my use effect (remove my event)
+    return () => window.removeEventListener("scroll", fixNavToTop);
+  }, []);
   return (
-    <nav className="absolute z-50 w-full select-none">
-      <main className="flex justify-between items-center bg-orange-200 p-1 px-4 text-sm m-6 lg:mx-16 shadow-md rounded-3xl">
+    <nav
+      className={`${
+        fixToTop ? "sticky" : "absolute "
+      } top-0 z-50 w-full select-none`}
+    >
+      <main
+        className={`flex justify-between items-center bg-[#D1B48C] p-1 px-4 text-sm ${
+          !fixToTop && "m-6 rounded-3xl lg:mx-16"
+        }  shadow-md `}
+      >
         {/* ......right........ */}
 
         <div className="flex items-center gap-3">
@@ -195,7 +222,7 @@ export default function Navbar({}: Props) {
           </li>
 
           <li>
-            <Link href="/login_register" className="m-2">
+            <Link href="/login" className="m-2">
               ورود/عضویت
             </Link>
           </li>
