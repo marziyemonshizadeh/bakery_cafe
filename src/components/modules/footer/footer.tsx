@@ -14,7 +14,7 @@ import Article from "./article";
 
 export default function Footer({}) {
   return (
-    <footer className="bg-cover bg-orange-200 text-black">
+    <footer className="bg-cover bg-[#D1B48C] text-black">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 p-12 leading-10 ">
         <section className="mx-auto">
           <h2 className="font-mono text-2xl font-bold">در تماس باش</h2>
