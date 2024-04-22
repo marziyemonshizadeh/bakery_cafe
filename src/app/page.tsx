@@ -1,3 +1,4 @@
+import Footer from "@/components/modules/footer/footer";
 import Navbar from "@/components/modules/navbar/navbar";
 import Articles from "@/components/templates/index/articles/articles";
 import Header from "@/components/templates/index/header/header";
@@ -8,7 +9,7 @@ import Promote from "@/components/templates/index/promote/promote";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-white dark:bg-[#2e2b27]">
       <Navbar />
       <Header />
       <LatestCoffee />
@@ -16,6 +17,7 @@ export default function Home() {
       <LatestPastry />
       <Promote />
       <Articles />
+      <Footer />
     </main>
   );
 }

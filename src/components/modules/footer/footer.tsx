@@ -14,7 +14,7 @@ import Article from "./article";
 
 export default function Footer({}) {
   return (
-    <footer className="bg-cover bg-[#D1B48C] text-black">
+    <footer className="bg-cover bg-[#D1B48C] text-black dark:bg-[#413a2d] dark:text-[#eacfaa]">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 p-12 leading-10 ">
         <section className="mx-auto">
           <h2 className="font-mono text-2xl font-bold">در تماس باش</h2>
@@ -32,19 +32,19 @@ export default function Footer({}) {
           </div>
           <div className="flex flex-row gap-4 my-3">
             <Link href="#">
-              <FaTelegramPlane className="hover:text-orange-800 text-xl" />
+              <FaTelegramPlane className="hover:text-slate-50 text-xl" />
             </Link>
             <Link href="#">
-              <FaInstagram className="hover:text-orange-800  text-xl" />
+              <FaInstagram className="hover:text-slate-50  text-xl" />
             </Link>
             <Link href="#">
-              <FaFacebookF className="hover:text-orange-800  text-xl" />
+              <FaFacebookF className="hover:text-slate-50  text-xl" />
             </Link>
             <Link href="#">
-              <FaWhatsapp className="hover:text-orange-800  text-xl" />
+              <FaWhatsapp className="hover:text-slate-50  text-xl" />
             </Link>
             <Link href="#">
-              <FaLinkedinIn className="hover:text-orange-800  text-xl" />
+              <FaLinkedinIn className="hover:text-slate-50  text-xl" />
             </Link>
           </div>
         </section>
@@ -100,9 +100,7 @@ export default function Footer({}) {
         </section>
       </div>
       <div className="border-t-[1px] border-slate-100 text-center py-4">
-        © 2024 تمام حقوق متعلق است به{" "}
-        <span className="font-bold">مرضیه منشی زاده کریمی </span> | طراحی و اجرا{" "}
-        <span className="font-bold">مرضیه منشی زاده کریمی </span>{" "}
+        © 2024 تمام حقوق متعلق است به ائذاتهههع| طراحی و اجرا تتاللاتالغ{" "}
       </div>
     </footer>
   );
