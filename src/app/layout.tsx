@@ -1,6 +1,8 @@
-import Footer from "@/components/modules/footer/footer";
+"use client";
 import AosInit from "@/utils/aos";
+import { ThemeProvider, useTheme } from "next-themes";
 import "./globals.css";
+
 export const metadata = {
   title: "Bakery_Cafe",
   description: "coffee / bakary project with next.js v13",
@@ -15,12 +17,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { resolvedTheme } = useTheme();
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <AosInit />
-        {children}
-        <Footer />
+        <ThemeProvider attribute="class">
+          <div className={`${resolvedTheme === "dark" ? "dark" : ""}`}>
+            <AosInit />
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
