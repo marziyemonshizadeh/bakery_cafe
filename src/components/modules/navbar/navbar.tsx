@@ -8,11 +8,10 @@ import {
   FaAngleDown,
   FaBars,
   FaCartShopping,
-  FaMoon,
   FaRegHeart,
   FaShuffle,
 } from "react-icons/fa6";
-import { MdWbSunny } from "react-icons/md";
+import ThemeSwitch from "../themeSwitch/themeSwitch";
 
 type Props = {};
 
@@ -26,6 +25,7 @@ export default function Navbar({}: Props) {
   useEffect(() => {
     const fixNavToTop = () => {
       const surrentScroll = window.pageYOffset;
+      console.log("surrentScroll=", surrentScroll);
 
       if (surrentScroll > 850) {
         setfixToTop(true);
@@ -293,22 +293,7 @@ export default function Navbar({}: Props) {
         </ul>
         {/* ......left........ */}
         <div className="flex items-center gap-3">
-          {/* {theme === "light" ? ( */}
-          <MdWbSunny
-            className="w-6 h-6 text-orange-950 dark:text-[#eacfaa]"
-            onClick={() => {
-              setTheme("light");
-            }}
-          />
-          {/* ) : ( */}
-          <FaMoon
-            className="w-6 h-6 text-orange-950 dark:text-[#eacfaa]"
-            onClick={() => {
-              setTheme("dark");
-            }}
-          />
-          {/* )} */}
-
+          <ThemeSwitch />
           <button
             type="button"
             className="relative inline-flex p-1 items-center text-sm font-medium text-center text-white   focus:ring-4 focus:outline-none  "
