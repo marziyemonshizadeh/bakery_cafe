@@ -1,5 +1,6 @@
 "use client";
 import AosInit from "@/utils/aos";
+import ScrollToTop from "@/utils/scrollToTop";
 import { ThemeProvider, useTheme } from "next-themes";
 import "./globals.css";
 
@@ -22,9 +23,10 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body>
         <ThemeProvider attribute="class">
-          <div className={`${resolvedTheme === "dark" ? "dark" : ""}`}>
+          <div className={`relative ${resolvedTheme === "dark" ? "dark" : ""}`}>
             <AosInit />
             {children}
+            <ScrollToTop />
           </div>
         </ThemeProvider>
       </body>
