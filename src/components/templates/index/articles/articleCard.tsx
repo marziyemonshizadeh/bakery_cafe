@@ -13,10 +13,10 @@ type Props = {
 export default function Article({ img, date, month, title, writer }: Props) {
   return (
     <div
-      className="bg-no-repeat text-lg text-white p-3 bg-cover flex flex-col justify-between"
+      className="bg-no-repeat text-lg text-white bg-slate-600 p-3 bg-cover flex flex-col justify-between select-none"
       style={{
         backgroundImage: `url("/${img}")`,
-        width: "350px",
+        // width: "350px",
         height: "350px",
         objectFit: "cover",
       }}
