@@ -13,7 +13,13 @@ export default function Promote({}: Props) {
       </div>
 
       <div className="flex md:flex-row flex-col justify-center items-center gap-12 bg-[#2F1E1B] text-orange-100 py-14">
-        <Image src="/takeAway2.png" alt="qqq" width={200} height={200} />
+        <Image
+          src="/images/takeAway2.png"
+          alt="qqq"
+          width={200}
+          height={200}
+          className="w-auto h-auto"
+        />
         <div className="text-center leading-10">
           <h2 className="font-bold text-orange-50 text-2xl">
             خرید قهوه ، به سبک حرفه ای ها
