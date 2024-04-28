@@ -11,38 +11,38 @@ export default function LatestCoffee({}: Props) {
   return (
     <div className="relative">
       <Title title=" جدیدترین قهوه ها" />
-      <LinkToDisplayAllProducts text="نمایش همه ی قهوه ها" href="#" />
+      <LinkToDisplayAllProducts href="#" />
       <div
-        className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 lg:gap-4 md:gap-2 flex flex-col justify-center gap-1 mt-12"
+        className="grid lg:grid-cols-4 grid-cols-2 lg:gap-4 md:gap-2 gap-1 mt-12"
         // data-aos="fade-down"
       >
         <Product
-          imgUrl="Coffee/nescoffee.png"
+          imgUrl="images/Coffee/nescoffee.png"
           title="دانه قهوه عربیکا"
           price={2000000}
         />
         <Product
-          imgUrl="Coffee/nescafeGold.jpg"
+          imgUrl="images/Coffee/nescafeGold.jpg"
           title="دانه قهوه عربیکا"
           price={2000000}
         />
         <Product
-          imgUrl="Coffee/alibaba.png"
+          imgUrl="images/Coffee/alibaba.png"
           title="دانه قهوه عربیکا"
           price={2000000}
         />
         {/* <Product
-            imgUrl="Coffee/jacobs.webp"
+            imgUrl="images/Coffee/jacobs.webp"
             title="دانه قهوه عربیکا"
             price={2000000}
           />
           <Product
-            imgUrl="Coffee/jacobs_espresso.png"
+            imgUrl="images/Coffee/jacobs_espresso.png"
             title="دانه قهوه عربیکا"
             price={2000000}
           /> */}
         <Product
-          imgUrl="Coffee/jacobs-mokka.png"
+          imgUrl="images/Coffee/jacobs-mokka.png"
           title="دانه قهوه عربیکا"
           price={2000000}
         />

@@ -11,28 +11,28 @@ export default function LatestPastry({}: Props) {
   return (
     <div className="relative">
       <Title title=" جدیدترین شیرینی ها" />
-      <LinkToDisplayAllProducts text="نمایش همه ی شیرینی ها" href="#" />
+      <LinkToDisplayAllProducts href="#" />
       <div
         // data-aos="fade-down"
         className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 lg:gap-4 md:gap-2 flex flex-col justify-center gap-1 mt-12"
       >
         <Product
-          imgUrl="Pastry/PARIS-BREST.png"
+          imgUrl="images/Pastry/PARIS-BREST.png"
           title="دانه قهوه عربیکا"
           price={2000000}
         />
         <Product
-          imgUrl="Pastry/lemon tart.png"
+          imgUrl="images/Pastry/lemon tart.png"
           title="دانه قهوه عربیکا"
           price={2000000}
         />
         <Product
-          imgUrl="Pastry/CROISSANT_BOYTYROY.png"
+          imgUrl="images/Pastry/CROISSANT_BOYTYROY.png"
           title="دانه قهوه عربیکا"
           price={2000000}
         />
         <Product
-          imgUrl="Pastry/VanillaCremeBruleeRamekin.png"
+          imgUrl="images/Pastry/VanillaCremeBruleeRamekin.png"
           title="دانه قهوه عربیکا"
           price={2000000}
         />
@@ -48,35 +48,35 @@ export default function LatestPastry({}: Props) {
         >
           <SwiperSlide>
             <Product
-              imgUrl="Pastry/VanillaCremeBruleeRamekin.png"
+              imgUrl="images/Pastry/VanillaCremeBruleeRamekin.png"
               title="دانه قهوه عربیکا"
               price={2000000}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Product
-              imgUrl="Pastry/PARIS-BREST.png"
+              imgUrl="images/Pastry/PARIS-BREST.png"
               title="دانه قهوه عربیکا"
               price={2000000}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Product
-              imgUrl="Pastry/lemon tart.png"
+              imgUrl="images/Pastry/lemon tart.png"
               title="دانه قهوه عربیکا"
               price={2000000}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Product
-              imgUrl="Pastry/CROISSANT_BOYTYROY.png"
+              imgUrl="images/Pastry/CROISSANT_BOYTYROY.png"
               title="دانه قهوه عربیکا"
               price={2000000}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Product
-              imgUrl="Pastry/Chocolate.png"
+              imgUrl="images/Pastry/Chocolate.png"
               title="دانه قهوه عربیکا"
               price={2000000}
             />

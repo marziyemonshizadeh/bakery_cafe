@@ -10,20 +10,28 @@ export default function LatestBread({}: Props) {
   return (
     <div className="relative">
       <Title title=" جدیدترین نان ها" />
-      <LinkToDisplayAllProducts text="نمایش همه ی نان ها" href="#" />
+      <LinkToDisplayAllProducts href="#" />
       <div
         // data-aos="fade-down"
         className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 lg:gap-4 md:gap-2 flex flex-col justify-center gap-1 mt-12"
       >
-        <Product imgUrl="Bread/simit.webp" title="نان بربری" price={2000000} />
-        <Product imgUrl="Bread/ciabatta.png" title="ددددد" price={2000000} />
         <Product
-          imgUrl="Bread/frenchBuguette.png"
+          imgUrl="images/Bread/simit.webp"
+          title="نان بربری"
+          price={2000000}
+        />
+        <Product
+          imgUrl="images/Bread/ciabatta.png"
           title="ددددد"
           price={2000000}
         />
         <Product
-          imgUrl="Bread/traditional-knot-pretzel.webp"
+          imgUrl="images/Bread/frenchBuguette.png"
+          title="ددددد"
+          price={2000000}
+        />
+        <Product
+          imgUrl="images/Bread/traditional-knot-pretzel.webp"
           title="ددددد"
           price={2000000}
         />
