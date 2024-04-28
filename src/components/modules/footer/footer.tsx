@@ -53,13 +53,13 @@ export default function Footer({}) {
           <h2 className="font-mono text-2xl font-bold">جدیدترین مقاله ها</h2>
           <Article
             src="#"
-            imgUrl="/hot chocolate.jpg"
+            imgUrl="/images/hot chocolate.jpg"
             title="تحقیق ژنوم پیچیده قهوه عربیکا"
             sub="28 بهمن 1402 بدون دیدگاه"
           />
           <Article
             src="#"
-            imgUrl="/hot chocolate.jpg"
+            imgUrl="/images/hot chocolate.jpg"
             title="تحقیق ژنوم پیچیده قهوه عربیکا"
             sub="28 بهمن 1402 بدون دیدگاه"
           />
@@ -96,7 +96,13 @@ export default function Footer({}) {
           <div>PM 8.00 -AM 8.00 </div>
           <div>پنج شنبه - جمعه</div>
           <div>PM 2.00 -PM 8.00 </div>
-          <Image src="/namad.png" alt="namad" width="150" height="150" />
+          <Image
+            src="/images/namad.png"
+            alt="namad"
+            width="150"
+            height="150"
+            className="w-auto h-auto"
+          />
         </section>
       </div>
       <div className="border-t-[1px] border-slate-100 text-center py-4">
