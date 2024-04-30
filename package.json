@@ -14,11 +14,16 @@
     "@types/react-dom": "18.2.24",
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "10.4.19",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
+    "mongoose": "^8.3.3",
     "next": "13.4.0",
+    "next-themes": "^0.3.0",
     "postcss": "8.4.38",
     "react": "latest",
     "react-dom": "latest",
+    "react-hook-form": "^7.51.3",
     "react-icons": "^4.12.0",
     "react-leaflet": "^4.2.1",
     "react-select": "^5.8.0",
@@ -27,5 +32,8 @@
     "swiper": "^11.0.4",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.4"
+  },
+  "devDependencies": {
+    "tailwind-scrollbar": "^3.1.0"
   }
 }
