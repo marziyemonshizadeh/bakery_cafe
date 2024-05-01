@@ -4,7 +4,6 @@ export interface loginFormValues{
     remember:boolean
 }
 export interface registerFormValues{
-    fullName:string,
     userName:string,
     password:string,
     email:string,
@@ -12,5 +11,14 @@ export interface registerFormValues{
 }
 export interface loginByPhoneNumberFormValues{
     phoneNumber:number,
+}
+export interface verifyCodeFormValues{
     code:number
+}
+export interface forgetPasswordFormValues{
+    identifier:number|string,
+}
+export interface setNewPasswordFormValues{
+    code:number,
+    password:string,
 }
