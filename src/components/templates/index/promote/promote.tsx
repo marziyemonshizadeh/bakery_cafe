@@ -14,7 +14,7 @@ export default function Promote({}: Props) {
 
       <div className="flex md:flex-row flex-col justify-center items-center gap-12 bg-[#2F1E1B] text-orange-100 py-14">
         <Image
-          src="/images/takeAway2.png"
+          src="/images/promote/takeAway2.png"
           alt="qqq"
           width={200}
           height={200}

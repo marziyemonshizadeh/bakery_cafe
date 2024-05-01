@@ -14,7 +14,7 @@ export default function Articles({}: Props) {
       <div className="my-14">
         <Swiper
           rewind={true}
-          spaceBetween={70}
+          spaceBetween={80}
           slidesPerView={3}
           navigation={true}
           loop={true}
@@ -34,10 +34,10 @@ export default function Articles({}: Props) {
               slidesPerView: 3,
             },
             1000: {
-              slidesPerView: 4,
+              slidesPerView: 3,
             },
             1500: {
-              slidesPerView: 4,
+              slidesPerView: 3,
             },
             1700: {
               slidesPerView: 4,
@@ -47,7 +47,7 @@ export default function Articles({}: Props) {
         >
           <SwiperSlide>
             <Article
-              img="hot chocolate.jpg"
+              img="images/drink/hot chocolate.jpg"
               date={1}
               month="sep"
               title="best time drink coffee"
@@ -56,7 +56,7 @@ export default function Articles({}: Props) {
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="hot chocolate.jpg"
+              img="images/drink/hot chocolate.jpg"
               date={2}
               month="sep"
               title="best time drink coffee"
@@ -65,7 +65,7 @@ export default function Articles({}: Props) {
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="hot chocolate.jpg"
+              img="images/drink/hot chocolate.jpg"
               date={3}
               month="sep"
               title="best time drink coffee"
@@ -74,7 +74,7 @@ export default function Articles({}: Props) {
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="hot chocolate.jpg"
+              img="images/drink/hot chocolate.jpg"
               date={4}
               month="sep"
               title="best time drink coffee"
@@ -83,7 +83,7 @@ export default function Articles({}: Props) {
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="hot chocolate.jpg"
+              img="images/drink/hot chocolate.jpg"
               date={5}
               month="sep"
               title="best time drink coffee"
