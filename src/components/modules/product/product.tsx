@@ -4,7 +4,7 @@ type Props = { imgUrl: string; title: string; price: number };
 
 export default function Product({ imgUrl, title, price }: Props) {
   return (
-    <div className="max-w-sm overflow-hidden flex flex-col justify-center items-center">
+    <div className="max-w-sm overflow-hidden mx-auto">
       <img
         className="w-60 h-60"
         src={`/${imgUrl}`}
