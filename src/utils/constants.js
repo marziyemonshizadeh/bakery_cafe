@@ -6,3 +6,8 @@ export const authTypes = {
   FORGETPASSWORD: "forgetPassword",
   SETNEWPASSWORD: "setNewPassword",
 };
+
+export const roles = {
+  USER: "USER",
+  ADMIN: "ADMIN",
+};
