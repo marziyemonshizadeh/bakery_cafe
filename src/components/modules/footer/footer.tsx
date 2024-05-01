@@ -97,7 +97,7 @@ export default function Footer({}) {
           <div>پنج شنبه - جمعه</div>
           <div>PM 2.00 -PM 8.00 </div>
           <Image
-            src="/images/namad.png"
+            src="/images/promote/namad.png"
             alt="namad"
             width="150"
             height="150"
