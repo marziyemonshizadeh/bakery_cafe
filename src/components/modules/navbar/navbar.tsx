@@ -1,5 +1,4 @@
 "use client";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -13,19 +12,12 @@ import {
 } from "react-icons/fa6";
 import ThemeSwitch from "../themeSwitch/themeSwitch";
 
-type Props = {};
-
-export default function Navbar({}: Props) {
+export default function Navbar() {
   const [fixToTop, setfixToTop] = useState(false);
-  const { theme, setTheme } = useTheme();
-  // const { setTheme, resolvedTheme } = useTheme();
-  console.log(theme);
 
-  // const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     const fixNavToTop = () => {
       const surrentScroll = window.pageYOffset;
-      console.log("surrentScroll=", surrentScroll);
 
       if (surrentScroll > 850) {
         setfixToTop(true);
@@ -37,6 +29,7 @@ export default function Navbar({}: Props) {
     // clean up my use effect (remove my event)
     return () => window.removeEventListener("scroll", fixNavToTop);
   }, []);
+
   return (
     <nav
       className={`${
@@ -55,14 +48,14 @@ export default function Navbar({}: Props) {
           <Link href="/">
             <Image
               alt="cooffee time"
-              src="/coffee-time-logo.png"
+              src="/images/coffee-time-logo.png"
               width={70}
               height={70}
               priority
+              className="w-14 h-14"
             />
           </Link>
         </div>
-        {/* md:inline-flex hidden */}
         {/* ......center........ */}
 
         <ul className="relative font-bold font-sans flex-row gap-6  hidden lg:inline-flex">
@@ -228,7 +221,7 @@ export default function Navbar({}: Props) {
           </li>
 
           <li>
-            <Link href="/login" className="m-2">
+            <Link href="/login-register" className="m-2">
               ورود/عضویت
             </Link>
           </li>
@@ -294,35 +287,20 @@ export default function Navbar({}: Props) {
         {/* ......left........ */}
         <div className="flex items-center gap-3">
           <ThemeSwitch />
-          <button
-            type="button"
-            className="relative inline-flex p-1 items-center text-sm font-medium text-center text-white   focus:ring-4 focus:outline-none  "
-          >
-            <FaRegHeart className="w-5 h-5 text-orange-950 dark:text-[#eacfaa]" />
+          <button type="button" className="notificationBadgeParent">
+            <FaRegHeart className="icon" />
             <span className="sr-only">Notifications</span>
-            <div className="absolute inline-flex items-center justify-center w-5 h-5 p-1 text-xs font-bold text-white bg-orange-900 dark:bg-orange-800 rounded-full -top-2 -end-2 dark:border-gray-900">
-              0
-            </div>
+            <div className="notificationBadgeChild">0</div>
           </button>
-          <button
-            type="button"
-            className="relative inline-flex p-1 items-center text-sm font-medium text-center text-white focus:ring-4 focus:outline-none"
-          >
-            <FaShuffle className="w-5 h-5 text-orange-950 dark:text-[#eacfaa]" />
+          <button type="button" className="notificationBadgeParent">
+            <FaShuffle className="icon" />
             <span className="sr-only">Notifications</span>
-            <div className="absolute inline-flex items-center justify-center w-5 h-5 p-1 text-xs font-bold text-white bg-orange-900 dark:bg-orange-800 rounded-full -top-2 -end-2 dark:border-gray-900">
-              0
-            </div>
+            <div className="notificationBadgeChild">0</div>
           </button>
-          <button
-            type="button"
-            className="relative inline-flex p-1 items-center text-sm font-medium text-center text-white focus:ring-4 focus:outline-none  "
-          >
-            <FaCartShopping className="w-5 h-5 text-orange-950 dark:text-[#eacfaa]" />
+          <button type="button" className="notificationBadgeParent">
+            <FaCartShopping className="icon" />
             <span className="sr-only">Notifications</span>
-            <div className="absolute inline-flex items-center justify-center w-5 h-5 p-1 text-xs font-bold text-white bg-orange-900 dark:bg-orange-800 rounded-full -top-2 -end-2 dark:border-gray-900">
-              0
-            </div>
+            <div className="notificationBadgeChild">0</div>
           </button>
         </div>
       </main>
