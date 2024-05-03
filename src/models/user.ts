@@ -1,33 +1,34 @@
 // user is entity
 const { default: mongoose } = require("mongoose");
-
-const schema = new mongoose.Schema({
+const schema = mongoose.Schema({
   userName: {
     type: String,
+    // min:5,
+    // max:12,
     required: true,
   },
   email: {
     type: String,
+    // min: 8,
+    // max: 30,
     match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
     required: true,
   },
   phoneNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
   password: {
     type: String,
+    // min: 8,
+    // max: 200,
     required: true,
   },
   role:{
     type:String,
-    required: true,
-    // default:"USER"
+    default:"USER"
   },
-  refreshToken:String,
-  // refreshToken :{
-  //  type:String
-  // },
+  refreshToken: String,
   // rememberMe:{
   //   type: Boolean,
     
