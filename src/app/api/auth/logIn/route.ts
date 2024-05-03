@@ -42,7 +42,7 @@ export async function POST(req: any) {
         
         const accessToken = generateAccessToken({ email :isUserExist.email});
         const refreshToken = generateRefreshToken({ email :isUserExist.email});
-      
+        await UserModel.findOneAndUpdate({email:isUserExist.email },{$set:{refreshToken}})
         return Response.json({ message: "User Logged In Successfully :))" },{status:200 , headers:{"Set-Cookie":`token = ${accessToken};path= "/";httpOnly= true`}}); 
       }catch (err) {
         return Response.json({ message: "log in has UnKnown internal server error !!" },{status:500 });
