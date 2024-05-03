@@ -53,13 +53,13 @@ export default function Footer({}) {
           <h2 className="font-mono text-2xl font-bold">جدیدترین مقاله ها</h2>
           <Article
             src="#"
-            imgUrl="/images/hot chocolate.jpg"
+            imgUrl="/images/drink/hot chocolate.jpg"
             title="تحقیق ژنوم پیچیده قهوه عربیکا"
             sub="28 بهمن 1402 بدون دیدگاه"
           />
           <Article
             src="#"
-            imgUrl="/images/hot chocolate.jpg"
+            imgUrl="/images/drink/hot chocolate.jpg"
             title="تحقیق ژنوم پیچیده قهوه عربیکا"
             sub="28 بهمن 1402 بدون دیدگاه"
           />
@@ -99,8 +99,8 @@ export default function Footer({}) {
           <Image
             src="/images/promote/namad.png"
             alt="namad"
-            width="150"
-            height="150"
+            width="120"
+            height="120"
             className="w-auto h-auto"
           />
         </section>
