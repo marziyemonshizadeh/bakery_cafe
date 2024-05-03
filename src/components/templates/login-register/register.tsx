@@ -18,11 +18,9 @@ export default function Register({ showloginForm }: Props) {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { isDirty, isValid },
   } = useForm<registerFormValues>();
   const onSubmit: SubmitHandler<registerFormValues> = async (data: any) => {
-    console.log(isDirty);
-
     if (!data.userName.trim()) {
       return showSwal("نام را وارد بکنید", "error", "تلاش مجدد");
     }
@@ -67,11 +65,10 @@ export default function Register({ showloginForm }: Props) {
       reset();
     } else if (res.status === 422) {
       showSwal("کاربری با این اطلاعات از قبل وجود دارد", "error", "تلاش مجدد");
+    } else if (res.status === 500) {
+      showSwal("مشکل از سرور", "error", "تلاش مجدد");
     }
-    console.log("data =", data);
   };
-  console.log("isDirty", isDirty);
-  console.log("isValid", isValid);
 
   return (
     <form
