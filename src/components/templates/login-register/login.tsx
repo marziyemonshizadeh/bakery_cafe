@@ -1,16 +1,28 @@
 "use client";
 import { loginFormValues } from "@/types/typings";
+import { showSwal } from "@/utils/helpers";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
-export default function Login() {
+
+type Props = {
+  showRegisterForm: () => void;
+  showSmsForm: () => void;
+  showForgetPassForm: () => void;
+};
+
+export default function Login({
+  showRegisterForm,
+  showSmsForm,
+  showForgetPassForm,
+}: Props) {
   const {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { errors },
   } = useForm<loginFormValues>();
   const onSubmit: SubmitHandler<loginFormValues> = async (data: any) => {
-    await fetch("api/messages", {
+    await fetch("api/auth/logIn", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -18,17 +30,23 @@ export default function Login() {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        if (res.status === 201) {
-          // console.log("ok = ", res);
+        if (res.status === 200) {
+          showSwal(" با موفقیت لاگین شدید", "success", "ورود به سایت");
           reset();
-        } else if (res.status === 422) {
         } else if (res.status === 404) {
+          showSwal("کاربری با این اطلاعات وجود ندارد", "error", "تلاش مجدد");
+        } else if (res.status === 422) {
+          showSwal(
+            "ایمیل ، شماره موبایل یا رمر عبور صحیح نمی باشد ",
+            "error",
+            "تلاش مجدد"
+          );
         } else if (res.status === 500) {
+          showSwal("مشکل از سرور", "error", "تلاش مجدد");
         }
         return res.json();
       })
       .catch((err) => console.log("can not sent message", err));
-    console.log("data=", data);
   };
   return (
     <form
@@ -38,7 +56,7 @@ export default function Login() {
     >
       <div>
         <label
-          htmlFor="email"
+          htmlFor="identifier"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           ایمیل / شماره موبایل
@@ -72,8 +90,9 @@ export default function Login() {
         <div className="flex items-start">
           <div className="flex items-center h-5">
             <Link
-              href="/forgetPass"
+              href="/login-register"
               className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+              onClick={showForgetPassForm}
             >
               فراموشی رمز عبور؟
             </Link>
@@ -105,15 +124,17 @@ export default function Login() {
         <p>
           حساب کاربری ندارید؟
           <Link
-            href="/register"
+            href="/login-register"
             className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+            onClick={showRegisterForm}
           >
             ثبت نام
           </Link>
         </p>
         <Link
-          href="/loginByPhoneNumber"
+          href="/login-register"
           className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+          onClick={showSmsForm}
         >
           ورود با کد یکبار مصرف
         </Link>
