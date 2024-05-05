@@ -6,9 +6,9 @@ import { showSwal } from "@/utils/helpers";
 // import usersValidator from "@/validators/user";
 
 
-export async function POST(req:any) {
+export async function POST(request: Request) {
     connectToDB()
-    // const validationResult = usersValidator(req.body)   
+    // const validationResult = usersValidator(request.body)   
     // console.log("validationResult===",validationResult);
        
     // if(validationResult !== true){      
@@ -16,7 +16,7 @@ export async function POST(req:any) {
     // }
     try{
 
-      const body = await req.json()
+      const body = await request.json()
       const { userName, email, phoneNumber, password } = body;
       
       // validation
@@ -25,7 +25,7 @@ export async function POST(req:any) {
          return showSwal(
               "نام کاربری اجباری می باشد لطفا وارد کنید",
               "error",
-              "تلاش مجدد"
+              "تلاش مجدد","#"
             );
       }
   
@@ -43,7 +43,7 @@ export async function POST(req:any) {
         });
       
       if (isUserExist) {
-         return Response.json({ message: "This username or email or phoneNumber exist already !!" },{status:404});
+         return Response.json({ message: "This username or email or phoneNumber exist already !!" },{status:422});
       } 
   
       const hashedPassword = await hashPassword(password); 
@@ -59,7 +59,7 @@ export async function POST(req:any) {
         password: hashedPassword,
         role: users.length > 0 ? roles.USER : roles.ADMIN,
       });
-      return Response.json({ message: "send get req " },{status:201 , headers:{"Set-Cookie":`token = ${accessToken};path= "/";httpOnly= true`}});
+      return Response.json({ message: "send get request " },{status:201 , headers:{"Set-Cookie":`token = ${accessToken};path= "/";httpOnly= true`}});
     }catch (err) {
       return Response.json({ message: "register has UnKnown internal server error !!" },{status:500 });
 
