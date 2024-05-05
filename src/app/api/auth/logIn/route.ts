@@ -8,18 +8,18 @@ export function GET() {
     return Response.json({ message: "send get req " });
 
 }
-export async function POST(req: any) {
+export async function POST(request: Request) {
     connectToDB()
     try{
 
-        const body = await req.json()
+        const body = await request.json()
         const { identifier, password } = body;
         
     
         if (
             !identifier.trim() ||
             !password.trim()) {
-            return Response.json({ message: "Data is not valid !!" },{status:422});
+            return Response.json({ message: "Data is not valid !!" },{status:419});
           }
         
           const ValidationPassword = validatePassword(password);
