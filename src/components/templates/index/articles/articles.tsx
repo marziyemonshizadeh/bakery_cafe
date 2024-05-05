@@ -47,46 +47,37 @@ export default function Articles({}: Props) {
         >
           <SwiperSlide>
             <Article
-              img="images/drink/hot chocolate.jpg"
-              date={1}
-              month="sep"
-              title="best time drink coffee"
-              writer="marziii"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Article
-              img="images/drink/hot chocolate.jpg"
+              img="articles/TheCoffeeGenome.jpg"
               date={2}
               month="sep"
-              title="best time drink coffee"
+              title="تحقیق ژنوم پیچیده قهوه عربیکا"
               writer="marziii"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="images/drink/hot chocolate.jpg"
+              img="articles/ThebenefitsOfCoffee.webp"
               date={3}
               month="sep"
-              title="best time drink coffee"
+              title="فواید قهوه"
               writer="marziii"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="images/drink/hot chocolate.jpg"
+              img="articles/AboutCoffee.jpg"
               date={4}
               month="sep"
-              title="best time drink coffee"
+              title="همه چیز درباره قهوه "
               writer="marziii"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="images/drink/hot chocolate.jpg"
+              img="articles/TurkCoffee.jpg"
               date={5}
               month="sep"
-              title="best time drink coffee"
+              title="قهوه ترک"
               writer="marziii"
             />
           </SwiperSlide>
