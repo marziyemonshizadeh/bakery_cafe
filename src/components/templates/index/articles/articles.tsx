@@ -5,9 +5,8 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Article from "./articleCard";
-type Props = {};
 
-export default function Articles({}: Props) {
+export default function Articles() {
   return (
     <div className="mx-10">
       <TitleSection title="مقاله  ها" />

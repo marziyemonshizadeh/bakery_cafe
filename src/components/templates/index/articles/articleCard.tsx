@@ -15,8 +15,7 @@ export default function Article({ img, date, month, title, writer }: Props) {
     <div
       className="bg-no-repeat text-lg  text-white bg-slate-600 p-3 bg-cover flex flex-col justify-between select-none"
       style={{
-        backgroundImage: `url("/${img}")`,
-        // width: "350px",
+        backgroundImage: ` linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("/${img}")`,
         height: "350px",
         objectFit: "cover",
       }}

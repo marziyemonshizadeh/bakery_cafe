@@ -4,9 +4,9 @@ type Props = { imgUrl: string; title: string; price: number };
 
 export default function Product({ imgUrl, title, price }: Props) {
   return (
-    <div className="max-w-sm overflow-hidden mx-auto">
+    <div className=" overflow-hidden mx-auto">
       <img
-        className="w-60 h-60"
+        className="w-48 h-48"
         src={`/${imgUrl}`}
         alt="Sunset in the mountains"
       />

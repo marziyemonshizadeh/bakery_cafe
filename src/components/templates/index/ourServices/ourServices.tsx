@@ -10,7 +10,7 @@ function OurServices() {
   return (
     <>
       <Title title="خدمات ما" />
-      <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 mx-5 gap-8 my-16 overflow-hidden">
+      <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 lg:mx-40 md:mx-20 mx-5 gap-2 my-16 overflow-hidden">
         <Service text="ارسال سریع">
           <TbTruckDelivery className="text-slate-50 dark:text-[#2e2b27] w-16 h-16" />
         </Service>
