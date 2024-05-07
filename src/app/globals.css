@@ -21,4 +21,7 @@
       @apply absolute inline-flex items-center justify-center w-5 h-5 p-1 text-xs font-bold text-white bg-orange-900 dark:bg-orange-800 rounded-full -top-2 -end-2 dark:border-gray-900
       
  }
+ .footerTitles{
+     @apply font-mono text-2xl font-bold mb-5
+ }
 } 
