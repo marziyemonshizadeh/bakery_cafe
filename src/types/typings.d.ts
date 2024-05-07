@@ -22,3 +22,10 @@ export interface setNewPasswordFormValues{
     code:number,
     password:string,
 }
+export interface contactFormValues{
+    email:string,
+    fullName:string,
+    phoneNumber:string,
+    companyName:string,
+    message:string,
+}
