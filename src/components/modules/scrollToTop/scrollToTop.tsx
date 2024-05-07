@@ -31,7 +31,7 @@ function ScrollToTop() {
       id="btn-back-to-top"
       className={`${
         isVisible ? "visible " : "invisible "
-      } rounded-full fixed bottom-3 right-3  flex items-center flex-col text-light justify-center bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] w-14 h-14 z-50`}
+      } rounded-full fixed bottom-3 left-0 me-3 flex items-center flex-col text-light justify-center bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] w-14 h-14 z-50`}
     >
       <FaAngleUp className="shadow-2xl text-3xl" />
     </Link>
