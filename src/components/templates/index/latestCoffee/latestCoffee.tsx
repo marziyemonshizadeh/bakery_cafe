@@ -13,7 +13,7 @@ export default function LatestCoffee({}: Props) {
       <Title title=" جدیدترین قهوه ها" />
       <LinkToDisplayAllProducts href="#" />
       <div
-        className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 lg:gap-4 md:gap-2 flex flex-col justify-center gap-1 mt-12"
+        className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 md:gap-2 flex flex-col justify-center gap-1 mt-12 mx-40"
         // data-aos="fade-down"
       >
         <Product
@@ -31,16 +31,7 @@ export default function LatestCoffee({}: Props) {
           title="دانه قهوه عربیکا"
           price={2000000}
         />
-        {/* <Product
-            imgUrl="images/Coffee/jacobs.webp"
-            title="دانه قهوه عربیکا"
-            price={2000000}
-          />
-          <Product
-            imgUrl="images/Coffee/jacobs_espresso.png"
-            title="دانه قهوه عربیکا"
-            price={2000000}
-          /> */}
+
         <Product
           imgUrl="images/Coffee/jacobs-mokka.png"
           title="دانه قهوه عربیکا"

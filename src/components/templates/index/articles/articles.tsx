@@ -47,7 +47,7 @@ export default function Articles({}: Props) {
         >
           <SwiperSlide>
             <Article
-              img="articles/TheCoffeeGenome.jpg"
+              img="images/articles/TheCoffeeGenome.jpg"
               date={2}
               month="sep"
               title="تحقیق ژنوم پیچیده قهوه عربیکا"
@@ -56,7 +56,7 @@ export default function Articles({}: Props) {
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="articles/ThebenefitsOfCoffee.webp"
+              img="images/articles/ThebenefitsOfCoffee.webp"
               date={3}
               month="sep"
               title="فواید قهوه"
@@ -65,7 +65,7 @@ export default function Articles({}: Props) {
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="articles/AboutCoffee.jpg"
+              img="images/articles/AboutCoffee.jpg"
               date={4}
               month="sep"
               title="همه چیز درباره قهوه "
@@ -74,7 +74,7 @@ export default function Articles({}: Props) {
           </SwiperSlide>
           <SwiperSlide>
             <Article
-              img="articles/TurkCoffee.jpg"
+              img="images/articles/TurkCoffee.jpg"
               date={5}
               month="sep"
               title="قهوه ترک"
