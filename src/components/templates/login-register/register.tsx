@@ -22,7 +22,7 @@ export default function Register({ showloginForm }: Props) {
   } = useForm<registerFormValues>();
   const onSubmit: SubmitHandler<registerFormValues> = async (data: any) => {
     if (!data.userName.trim()) {
-      return showSwal("نام را وارد بکنید", "error", "تلاش مجدد");
+      return showSwal("نام را وارد بکنید", "error", "تلاش مجدد", "#");
     }
 
     const isValidUserName = validateUserName(data.userName);
@@ -30,18 +30,24 @@ export default function Register({ showloginForm }: Props) {
       return showSwal(
         "نام کاربری باید حداقل 5 و حداکثر 16 کاراکتر داشته باشد",
         "error",
-        "تلاش مجدد "
+        "تلاش مجدد ",
+        "#"
       );
     }
 
     const isValidPhone = validatePhone(data.phoneNumber);
     if (!isValidPhone) {
-      return showSwal("شماره تماس وارد شده معتبر نیست", "error", "تلاش مجدد ");
+      return showSwal(
+        "شماره تماس وارد شده معتبر نیست",
+        "error",
+        "تلاش مجدد ",
+        "#"
+      );
     }
 
     const isValidEmail = validateEmail(data.email);
     if (!isValidEmail) {
-      return showSwal("ایمیل وارد شده معتبر نیست", "error", "تلاش مجدد ");
+      return showSwal("ایمیل وارد شده معتبر نیست", "error", "تلاش مجدد ", "#");
     }
 
     const isValidPassword = validatePassword(data.password);
@@ -49,7 +55,8 @@ export default function Register({ showloginForm }: Props) {
       return showSwal(
         "لطفا رمز عبور امن تری را وارد کنید !",
         "error",
-        "تلاش مجدد "
+        "تلاش مجدد ",
+        "#"
       );
     }
 
@@ -61,12 +68,22 @@ export default function Register({ showloginForm }: Props) {
       body: JSON.stringify(data),
     });
     if (res.status === 201) {
-      showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری");
+      showSwal(
+        "ثبت نام با موفقیت انجام شد",
+        "success",
+        "ورود به پنل کاربری",
+        "/"
+      );
       reset();
     } else if (res.status === 422) {
-      showSwal("کاربری با این اطلاعات از قبل وجود دارد", "error", "تلاش مجدد");
+      showSwal(
+        "کاربری با این اطلاعات از قبل وجود دارد",
+        "error",
+        "تلاش مجدد",
+        "#"
+      );
     } else if (res.status === 500) {
-      showSwal("مشکل از سرور", "error", "تلاش مجدد");
+      showSwal("مشکل از سرور", "error", "تلاش مجدد", "#");
     }
   };
 
