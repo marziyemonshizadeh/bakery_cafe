@@ -1,16 +1,44 @@
+"use client";
+import Link from "next/link";
+import { useReducer } from "react";
 import { FaStar } from "react-icons/fa";
+import { ActionTypes, CounterType } from "./product.type";
 
-type Props = { imgUrl: string; title: string; price: number };
+type ProductProps = { imgUrl: string; title: string; price: number };
+const initialState = {
+  count: 0,
+};
 
-export default function Product({ imgUrl, title, price }: Props) {
+const reducer = (state: CounterType, action: ActionTypes) => {
+  switch (action.type) {
+    case "increment":
+      if (state.count == 5) {
+        return { count: state.count + 0 };
+      }
+      return { count: state.count + action.payload };
+    case "decrement":
+      if (state.count == 0) {
+        return { count: state.count };
+      }
+      return { count: state.count - action.payload };
+    default: {
+      throw new Error("Invalid Action Type !!");
+    }
+  }
+};
+export default function Product({ imgUrl, title, price }: ProductProps) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <div className=" overflow-hidden mx-auto">
-      <img
-        className="w-48 h-48"
-        src={`/${imgUrl}`}
-        alt="Sunset in the mountains"
-      />
-      <div className="px-6 py-4 flex flex-col items-center gap-2">
+    <div className="overflow-hidden mx-auto border border-gray-200 rounded-lg p-5 hover:cursor-pointer z-20">
+      <Link href="#">
+        <img
+          className="w-48 h-48"
+          src={`/${imgUrl}`}
+          alt="Sunset in the mountains"
+        />
+      </Link>
+      <section className="px-6 py-2 flex flex-col items-center gap-2">
         <p className="font-bold text-xl mb-2">{title}</p>
         <div className="flex">
           <FaStar className="text-yellow-400" />
@@ -20,7 +48,30 @@ export default function Product({ imgUrl, title, price }: Props) {
           <FaStar className="text-yellow-400" />
         </div>
         <span>{price} تومان</span>
-      </div>
+        <div className="flex items-center gap-3">
+          <Link
+            href="#"
+            className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch({ type: "increment", payload: 1 });
+            }}
+          >
+            +
+          </Link>
+          <span> {state.count}</span>
+          <Link
+            href="#"
+            className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch({ type: "decrement", payload: 1 });
+            }}
+          >
+            -
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
