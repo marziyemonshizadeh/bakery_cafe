@@ -9,8 +9,8 @@ export function GET() {
 
 }
 export async function POST(request: Request) {
-    connectToDB()
-    try{
+  try{
+      connectToDB()
 
         const body = await request.json()
         const { identifier, password } = body;
@@ -40,12 +40,22 @@ export async function POST(request: Request) {
             return Response.json({ message: "your mail or password is not correct !!" },{status:401});
           }
         
-        const accessToken = generateAccessToken({ email :isUserExist.email});
-        const refreshToken = generateRefreshToken({ email :isUserExist.email});
+        const accessToken = generateAccessToken({ email :identifier});
+        console.log("accessToken",accessToken);
+        
+        const refreshToken = generateRefreshToken({ email :identifier});
+        console.log("refreshToken",refreshToken);
+        
+        
         await UserModel.findOneAndUpdate({email:isUserExist.email },{$set:{refreshToken}})
-        return Response.json({ message: "User Logged In Successfully :))" },{status:200 , headers:{"Set-Cookie":`token = ${accessToken};path= "/";httpOnly= true`}}); 
+        return Response.json({ message: "User Logged In Successfully :))" },{status:200 , headers:{"Set-Cookie":`token=${accessToken};path=/;httpOnly=true`}}); 
       }catch (err) {
-        return Response.json({ message: "log in has UnKnown internal server error !!" },{status:500 });
-  
+        console.log("log in has UnKnown internal server error ->", err);
+        return Response.json(
+          { message: err },
+          {
+            status: 500,
+          }
+        );  
       }
 }
