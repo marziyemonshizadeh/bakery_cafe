@@ -1,15 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaLocationArrow,
-  FaPhone,
-  FaRegEnvelope,
-  FaTelegramPlane,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaLocationArrow, FaPhone, FaRegEnvelope } from "react-icons/fa";
+import SocialMedias from "../socialMedia/socialMedia";
 import Article from "./article";
 
 export default function Footer({}) {
@@ -30,23 +22,7 @@ export default function Footer({}) {
             <FaRegEnvelope className="icon" />
             marziehmonshizade@yahoo.com
           </div>
-          <div className="flex flex-row gap-4 my-3">
-            <Link href="#">
-              <FaTelegramPlane className="icon" />
-            </Link>
-            <Link href="#">
-              <FaInstagram className="icon" />
-            </Link>
-            <Link href="#">
-              <FaFacebookF className="icon" />
-            </Link>
-            <Link href="#">
-              <FaWhatsapp className="icon" />
-            </Link>
-            <Link href="#">
-              <FaLinkedinIn className="icon" />
-            </Link>
-          </div>
+          <SocialMedias />
         </section>
 
         <section className="mx-auto">
