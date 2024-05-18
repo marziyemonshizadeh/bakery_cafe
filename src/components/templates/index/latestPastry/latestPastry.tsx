@@ -11,10 +11,10 @@ export default function LatestPastry({}: Props) {
   return (
     <div className="relative">
       <Title title=" جدیدترین شیرینی ها" />
-      <LinkToDisplayAllProducts href="#" />
+      <LinkToDisplayAllProducts href="/store/pastries" />
       <div
         // data-aos="fade-down"
-        className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 lg:gap-4 md:gap-2 flex flex-col justify-center gap-1 mt-12 mx-40"
+        className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 md:gap-2 flex flex-col justify-center gap-1 mt-12 md:mx-40 mx-5"
       >
         <Product
           imgUrl="images/Pastry/PARIS-BREST.png"
