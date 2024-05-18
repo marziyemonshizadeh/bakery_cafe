@@ -11,3 +11,8 @@ export const roles = {
   USER: "USER",
   ADMIN: "ADMIN",
 };
+export const tabs = {
+  DESCRIPTION: "Description",
+  MOREINFOES: "MoreInfoes",
+  COMMENTS: "Comments",
+};
