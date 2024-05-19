@@ -1,10 +1,16 @@
 "use client";
+
 import Link from "next/link";
 import { useReducer } from "react";
-import { FaStar } from "react-icons/fa";
+import Scores from "../scores/Scores";
 import { ActionTypes, CounterType } from "./product.type";
 
-type ProductProps = { imgUrl: string; title: string; price: number };
+type ProductProps = {
+  imgUrl: string;
+  title: string;
+  price: number;
+  score: number;
+};
 const initialState = {
   count: 0,
 };
@@ -26,12 +32,13 @@ const reducer = (state: CounterType, action: ActionTypes) => {
     }
   }
 };
-export default function Product({ imgUrl, title, price }: ProductProps) {
+export default function Product({ imgUrl, title, price, score }: ProductProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  let starts = Math.trunc(score);
 
   return (
-    <div className="overflow-hidden mx-auto border border-gray-200 rounded-lg p-5 hover:cursor-pointer z-20">
-      <Link href="#">
+    <div className="overflow-hidden mx-auto border border-gray-200 rounded-lg p-5 hover:cursor-pointer hover:bg-[#a59c95]/10 transition-colors z-20">
+      <Link href="/product/6645ba289dda028157c53370">
         <img
           className="w-48 h-48"
           src={`/${imgUrl}`}
@@ -40,13 +47,7 @@ export default function Product({ imgUrl, title, price }: ProductProps) {
       </Link>
       <section className="px-6 py-2 flex flex-col items-center gap-2">
         <p className="font-bold text-xl mb-2">{title}</p>
-        <div className="flex">
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-        </div>
+        <Scores starts={starts} />
         <span>{price} تومان</span>
         <div className="flex items-center gap-3">
           <Link

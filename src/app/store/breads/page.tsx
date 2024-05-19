@@ -10,41 +10,49 @@ function Breads() {
           imgUrl="images/Bread/Barbari.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/ciabatta.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/frenchBuguette.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/multigrain-sandwich.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/protein_bread.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/sangakbread.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/simit.webp"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/traditional-knot-pretzel.webp"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
       </div>
     </div>

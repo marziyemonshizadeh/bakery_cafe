@@ -12,41 +12,49 @@ function Coffees({}: Props) {
           imgUrl="images/Coffee/alibaba.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/setCoffee.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/jacobs_espresso.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/jacobs-mokka.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/jacobs.webp"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/nescafeGold.jpg"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/nescoffee.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/turk-kahvesi.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
       </div>
     </div>

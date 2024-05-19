@@ -1,5 +1,5 @@
+import Scores from "@/components/modules/scores/Scores";
 import SocialMedias from "@/components/modules/socialMedia/socialMedia";
-import { FaRegStar, FaStar } from "react-icons/fa";
 import BreadCrumb from "./breadCrumb";
 
 function Details({ product }: any) {
@@ -8,22 +8,15 @@ function Details({ product }: any) {
       <BreadCrumb name={product.name} />
       <h2 className="text-2xl font-extrabold my-2">{product.name}</h2>
       <div className="flex items-center">
-        <div className="flex">
-          {new Array(Math.trunc(product.score)).fill(0).map((star) => (
-            <FaStar key={star} className="text-yellow-400" />
-          ))}
-          {new Array(5 - Math.trunc(product.score)).fill(0).map((star) => (
-            <FaRegStar key={star} className="text-yellow-400" />
-          ))}
-        </div>
+        <Scores starts={Math.trunc(product.score)} />
         <p className="ms-1">(دیدگاه {product.comments.length} کاربر)</p>
       </div>
       <h2 className="text-2xl font-extrabold">
         {product.price.toLocaleString()} تومان
       </h2>
-      <desc className="text-slate-600 dark:text-slate-300">
+      <p className="text-slate-600 dark:text-slate-300">
         {product.shortDescription}
-      </desc>
+      </p>
       <hr />
       {/* <div className="flex items-center gap-3"> */}
       {/* <Link
