@@ -20,21 +20,25 @@ export default function LatestPastry({}: Props) {
           imgUrl="images/Pastry/PARIS-BREST.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Pastry/lemon tart.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Pastry/CROISSANT_BOYTYROY.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Pastry/VanillaCremeBruleeRamekin.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
       </div>
       {/* amazing background */}

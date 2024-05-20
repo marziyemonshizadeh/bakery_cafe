@@ -17,22 +17,26 @@ export default function LatestCoffee({}: Props) {
           imgUrl="images/Coffee/nescoffee.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Coffee/nescafeGold.jpg"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {2}
         />
         <Product
           imgUrl="images/Coffee/alibaba.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {1}
         />
 
         <Product
           imgUrl="images/Coffee/jacobs-mokka.png"
           title="دانه قهوه عربیکا"
           price={2000000}
+          score= {4}
         />
       </div>
       {/* amazing background */}

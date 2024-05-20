@@ -19,21 +19,25 @@ export default function LatestBread({}: Props) {
           imgUrl="images/Bread/simit.webp"
           title="نان بربری"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/ciabatta.png"
           title="ددددد"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/frenchBuguette.png"
           title="ددددد"
           price={2000000}
+          score= {5}
         />
         <Product
           imgUrl="images/Bread/traditional-knot-pretzel.webp"
           title="ددددد"
           price={2000000}
+          score= {5}
         />
       </div>
       {/* amazing background */}
