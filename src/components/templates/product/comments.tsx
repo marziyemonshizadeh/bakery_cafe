@@ -1,9 +1,9 @@
 import Comment from "@/components/modules/comment/comment";
 import CommentForm from "./CommentForm";
 
-type CommentsProps = { comments: any };
+type CommentsProps = { comments: any; productID: number };
 
-function Comments({ comments }: CommentsProps) {
+function Comments({ comments, productID }: CommentsProps) {
   return (
     <div className="flex lg:flex-row flex-col  lg:justify-between justify-center gap-4 my-8">
       <div className="min-w-[600px]">
@@ -12,7 +12,7 @@ function Comments({ comments }: CommentsProps) {
           <Comment key={comment._id} {...comment} />
         ))}
       </div>
-      <CommentForm />
+      <CommentForm productID={productID} />
     </div>
   );
 }
