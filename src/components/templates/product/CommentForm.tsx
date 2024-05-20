@@ -1,32 +1,75 @@
 "use client";
 
 import { productFormValues } from "@/types/typings";
+import { showSwal } from "@/utils/helpers";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { FaStar } from "react-icons/fa";
 
-type Props = {};
+function CommentForm({ productID }: any) {
+  console.log("productID comment form ", productID);
 
-function CommentForm({}: Props) {
   const { register, reset, handleSubmit } = useForm<productFormValues>();
   const onSubmit: SubmitHandler<productFormValues> = async (data: any) => {
-    console.log("data", data);
-    reset();
+    let newdata = {
+      ...data,
+      productID: productID,
+      date: Date.now(),
+    };
+    const res = await fetch("/api/comments", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(newdata),
+    });
+    if (res.status === 201) {
+      showSwal("کامنت مورد نظر با موفقیت ثبت شد :)", "success", "ok", "/");
+      reset();
+    } else if (res.status === 422) {
+      showSwal(
+        "کاربری با این اطلاعات از قبل وجود دارد",
+        "error",
+        "تلاش مجدد",
+        "#"
+      );
+    } else if (res.status === 500) {
+      showSwal("مشکل از سرور", "error", "تلاش مجدد", "#");
+    }
   };
   return (
     <div className="flex flex-col leading-10 min-w-[600px]">
       <p className="font-bold">دیدگاه خود را بنویسید</p>
       <p>نشانی ایمیل شما منتشر نخواهد شد. </p>
-      <div className="flex items-center gap-2">
-        <p>امتیاز شما :</p>
-        <div className="flex">
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-          <FaStar className="text-yellow-400" />
-        </div>
-      </div>
       <form className="my-4" action="#" onSubmit={handleSubmit(onSubmit)}>
+        <div className="w-full md:w-1/3  mb-6 md:mb-0">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="grid-state"
+          >
+            امتیاز شما
+          </label>
+          <div className="relative">
+            <select
+              className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-state"
+              {...register("score", { required: true })}
+            >
+              <option value={5}>5</option>
+              <option value={4}>4</option>
+              <option value={3}>3</option>
+              <option value={2}>2</option>
+              <option value={1}>1</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="name"
