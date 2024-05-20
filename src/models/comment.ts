@@ -1,8 +1,8 @@
 const { default: mongoose } = require("mongoose");
-require("./product")
+require("./product");
 
 const schema = mongoose.Schema({
-  userName: {
+  name: {
     type: String,
     required: true,
   },
@@ -17,22 +17,20 @@ const schema = mongoose.Schema({
   },
   score: {
     type: Number,
-    min:1,
-    max:5,
+    min: 1,
+    max: 5,
     required: true,
   },
-  date:{
+  date: {
     type: Date,
     default: () => Date.now(),
-    immutable: false
+    immutable: false,
   },
-  productID:{
-    type:mongoose.Types.ObjectId,
-    ref :"product",
+  productID: {
+    type: mongoose.Types.ObjectId,
+    ref: "product",
     required: true,
-
   },
-
 });
 
 const model = mongoose.models.comment || mongoose.model("comment", schema);
