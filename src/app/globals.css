@@ -10,18 +10,17 @@
   font-weight: 1000;
 }
 
-@layer components{
-  .icon{
-      @apply w-5 h-5 text-orange-950 dark:text-[#eacfaa]
-  } 
- .notificationBadgeParent{
-      @apply relative inline-flex p-1 items-center text-sm font-medium text-center text-white focus:ring-4 focus:outline-none
- }
- .notificationBadgeChild{
-      @apply absolute inline-flex items-center justify-center w-5 h-5 p-1 text-xs font-bold text-white bg-orange-900 dark:bg-orange-800 rounded-full -top-2 -end-2 dark:border-gray-900
-      
- }
- .footerTitles{
-     @apply font-mono text-2xl font-bold mb-5
- }
-} 
+@layer components {
+  .icon {
+    @apply w-5 h-5 text-orange-950 dark:text-[#eacfaa];
+  }
+  .notificationBadgeParent {
+    @apply relative inline-flex p-1 items-center text-sm font-medium text-center text-white focus:ring-4 focus:outline-none;
+  }
+  .notificationBadgeChild {
+    @apply absolute inline-flex items-center justify-center w-5 h-5 p-1 text-xs font-bold text-white bg-orange-900 dark:bg-orange-800 rounded-full -top-2 -end-2 dark:border-gray-900;
+  }
+  .footerTitles {
+    @apply font-mono text-2xl font-bold mb-5;
+  }
+}
