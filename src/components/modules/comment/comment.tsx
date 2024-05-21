@@ -1,15 +1,20 @@
 import Image from "next/image";
 import Scores from "../scores/Scores";
 
-type CommentProps = { userName: string; message: string; score: number };
+type CommentProps = {
+  userName: string;
+  message: string;
+  score: number;
+  date: number;
+};
 
-function Comment({ userName, message, score }: CommentProps) {
+function Comment({ userName, message, score, date }: CommentProps) {
   return (
-    <div className="grid grid-cols-6 py-4 border-b ">
+    <div className="grid grid-cols-6 gap-3 py-4 border-b ">
       <Image
         className="h-14 w-14 col-span-1"
         alt="notFound"
-        src="/images/user3.avif"
+        src="/images/product/user3.avif"
         width={200}
         height={200}
       />
@@ -17,7 +22,9 @@ function Comment({ userName, message, score }: CommentProps) {
         <div className="flex justify-between items-center w-full">
           <div>
             <span className="font-bold">{userName}</span>-
-            <span className="text-slate-600"> ۲۱ بهمن ۱۴۰۲</span>
+            <span className="text-slate-600">
+              {new Date(date).toLocaleDateString("fa-IR")}
+            </span>
           </div>
           <Scores starts={score} />
         </div>
