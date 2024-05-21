@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Descriptions({ longDescription }: any) {
   return (
-    <div className="mb-40">
+    <>
       <h2 className="text-2xl font-extrabold my-2">
         دانه قهوه کلمبیا از منطقه Nariño
       </h2>
@@ -17,12 +17,14 @@ function Descriptions({ longDescription }: any) {
       <Image
         className="mx-auto h-auto max-w-md m-4"
         alt="cafe_de_colombia"
-        src="/images/cafe_de_colombia.jpg"
+        src="/images/product/cafe_de_colombia.jpg"
         width={200}
         height={200}
       />
-      <p className="text-slate-600 dark:text-slate-300">{longDescription}</p>
-    </div>
+      <p className="text-slate-600 dark:text-slate-300 mb-4">
+        {longDescription}
+      </p>
+    </>
   );
 }
 

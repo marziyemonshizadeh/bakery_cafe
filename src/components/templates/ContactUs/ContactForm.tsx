@@ -10,7 +10,7 @@ export default function ContactForm() {
     reset();
   };
   return (
-    <div className="flex flex-col max-w-[500px] leading-10">
+    <div className="flex flex-col leading-10">
       <div className="text-slate-400">فرم تماس با ما</div>
       <h2 className="text-2xl font-extrabold text-black dark:text-white">
         برای تماس با ما می توانید فرم زیر را تکمیل کنید

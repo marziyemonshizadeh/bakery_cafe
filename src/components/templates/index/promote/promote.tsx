@@ -19,8 +19,9 @@ export default function Promote({}: Props) {
           width={200}
           height={200}
           className="w-auto h-auto"
+          data-aos="fade-down-left"
         />
-        <div className="text-center leading-10">
+        <div className="text-center leading-10" data-aos="fade-up-right">
           <h2 className="font-bold text-orange-50 text-2xl">
             خرید قهوه ، به سبک حرفه ای ها
           </h2>
