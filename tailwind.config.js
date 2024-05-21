@@ -15,13 +15,16 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    // ...
+    require("tailwind-scrollbar"),
+  ],
   variants: {
     extend: {
       display: ["group-hover"],
     },
   },
-  plugins: [
-    // ...
-    require("tailwind-scrollbar"),
-  ],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
 };
