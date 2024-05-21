@@ -1,10 +1,29 @@
 import Link from "next/link";
 import { FaAngleDown } from "react-icons/fa6";
-type NavLinksProps = { isLogin: boolean };
+type NavLinksProps = { isLogin: boolean; userName: string };
 
-function NavLinks({ isLogin }: NavLinksProps) {
+function NavLinks({ isLogin, userName }: NavLinksProps) {
+  // const auth = useContext(AuthContext);
+  // console.log(auth);
+  // console.log(auth?.user?.name);
+
+  // const login = () => {
+  //   auth?.setUser({
+  //     email: "amin@gmail.com",
+  //   });
+  // };
+
+  // const logout = () => {
+  //   auth?.setUser(null);
+  // };
   return (
     <ul className="relative font-bold font-sans flex-row gap-6  hidden lg:inline-flex">
+      {/* <button onClick={() => login()}>login</button> */}
+      {/* {auth ? <h2>{auth.user?.name}</h2> : <></>} */}
+      <h1>
+        {/* Sabzlearn Header |{auth && auth.user?.email} */}
+        {/* {auth?.user?.email} */}
+      </h1>
       <li>
         <Link href="#" className="m-2">
           صفحه اصلی
@@ -31,7 +50,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
           >
             <li>
               <Link
-                href="/p-user/orders"
+                href="/store/breads"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 نان
@@ -39,7 +58,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/p-user/tickets"
+                href="/store/coffees"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 قهوه
@@ -47,7 +66,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/p-user/tickets"
+                href="/store/pastries"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 شیرینی
@@ -55,7 +74,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/p-user/tickets"
+                href="/store/drinks"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 نوشیدنی
@@ -85,7 +104,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
 
       <li className="relative group">
         <Link
-          href="/weblog"
+          href="/weblog/news"
           id="dropdownMenuIconButton"
           data-dropdown-toggle="dropdownDots"
           className="inline-flex items-center text-sm font-medium text-center "
@@ -111,14 +130,14 @@ function NavLinks({ isLogin }: NavLinksProps) {
               href="/weblog/news"
               className="block px-4 py-2 hover:bg-orange-100"
             >
-              اخبار و مقالات{" "}
+              اخبار و مقالات
             </Link>
           </li>
         </ul>
       </li>
       <li>
-        <Link href="#" className="flex items-center">
-          قوانین
+        <Link href="/weblog/setclub" className="flex items-center">
+          باشگاه مشتریان
         </Link>
       </li>
 
@@ -130,7 +149,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
 
       <li className="relative group">
         <Link
-          href="/about-us"
+          href="/weblog/aboutUs"
           id="dropdownMenuIconButton"
           data-dropdown-toggle="dropdownDots"
           className="inline-flex items-center text-sm font-medium text-center "
@@ -148,7 +167,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
           >
             <li>
               <Link
-                href="/p-user/orders"
+                href="/weblog/aboutUs/TermsAndConditions"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 شرایط و قوانین
@@ -156,7 +175,7 @@ function NavLinks({ isLogin }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/p-user/tickets"
+                href="/weblog/aboutUs/RegisterComplaints"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 ثبت شکایات
@@ -174,7 +193,8 @@ function NavLinks({ isLogin }: NavLinksProps) {
               data-dropdown-toggle="dropdownDots"
               className="inline-flex items-center text-sm font-medium text-center "
             >
-              حساب کاربری
+              {userName}
+              {/* حساب کاربری */}
               <FaAngleDown className="mt-1 group-hover:rotate-180 transition-all" />
             </Link>
             <ul
@@ -220,6 +240,11 @@ function NavLinks({ isLogin }: NavLinksProps) {
                   className="block px-4 py-2 hover:bg-orange-100"
                 >
                   جزئیات اکانت{" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="block px-4 py-2 hover:bg-orange-100">
+                  خروج
                 </Link>
               </li>
             </ul>
