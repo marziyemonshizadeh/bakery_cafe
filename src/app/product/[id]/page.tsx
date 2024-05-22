@@ -24,7 +24,7 @@ async function Product({ params }: ProductProps) {
           <Image
             className="w-72 h-72"
             alt="notFound"
-            src={`/images/Coffee/${product.image}`}
+            src={`/images/${product.image}`}
             width={200}
             height={200}
           />
