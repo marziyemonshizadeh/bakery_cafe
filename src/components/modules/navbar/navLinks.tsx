@@ -228,7 +228,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
               </li>
               <li>
                 <Link
-                  href="/p-user/favorites"
+                  href="/wishList"
                   className="block px-4 py-2 hover:bg-orange-100"
                 >
                   علاقه مندی ها
@@ -239,7 +239,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
                   href="/p-user/account-details"
                   className="block px-4 py-2 hover:bg-orange-100"
                 >
-                  جزئیات اکانت{" "}
+                  جزئیات اکانت
                 </Link>
               </li>
               <li>
