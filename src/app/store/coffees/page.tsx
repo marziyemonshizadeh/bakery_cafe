@@ -1,61 +1,24 @@
 import Product from "@/components/modules/product/product";
 import Header from "@/components/templates/store/header";
+import productModel from "@/models/product";
+import connectToDB from "@/utils/db";
 
-type Props = {};
+async function Coffees() {
+  connectToDB();
+  const coffees = await productModel.find({ category: "قهوه" });
 
-function Coffees({}: Props) {
   return (
     <div className="overflow-hidden">
       <Header imgUrl="images/Coffee/coffeeBG.jpg" />
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 my-8">
-        <Product
-          imgUrl="images/Coffee/alibaba.png"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
-        <Product
-          imgUrl="images/Coffee/setCoffee.png"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
-        <Product
-          imgUrl="images/Coffee/jacobs_espresso.png"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
-        <Product
-          imgUrl="images/Coffee/jacobs-mokka.png"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
-        <Product
-          imgUrl="images/Coffee/jacobs.webp"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
-        <Product
-          imgUrl="images/Coffee/nescafeGold.jpg"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
-        <Product
-          imgUrl="images/Coffee/nescoffee.png"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
-        <Product
-          imgUrl="images/Coffee/turk-kahvesi.png"
-          title="دانه قهوه عربیکا"
-          price={2000000}
-          score= {5}
-        />
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 my-8 mx-10">
+        {coffees.map((coffee: any) => (
+          <Product
+            imgUrl={`images/${coffee.image}`}
+            title={coffee.name}
+            price={coffee.price}
+            score={coffee.score}
+          />
+        ))}
       </div>
     </div>
   );
