@@ -1,29 +1,39 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaAngleDown } from "react-icons/fa6";
+const swal = require("sweetalert");
+
 type NavLinksProps = { isLogin: boolean; userName: string };
 
 function NavLinks({ isLogin, userName }: NavLinksProps) {
-  // const auth = useContext(AuthContext);
-  // console.log(auth);
-  // console.log(auth?.user?.name);
+  const path = usePathname();
 
-  // const login = () => {
-  //   auth?.setUser({
-  //     email: "amin@gmail.com",
-  //   });
-  // };
+  const logOutHandler = () => {
+    swal({
+      title: "آیا می خواهید از حساب کاربری خود خارج شوید ؟",
+      icon: "warning",
+      buttons: ["خیر", "بله"],
+    }).then(async (result: any) => {
+      if (result) {
+        const res = await fetch("/api/auth/logOut", {
+          method: "POST",
+        });
 
-  // const logout = () => {
-  //   auth?.setUser(null);
-  // };
+        if (res.status === 200) {
+          swal({
+            title: "با موفقیت از اکانت خارج شدین",
+            icon: "success",
+            buttons: "فهمیدم",
+          }).then((result: any) => {
+            location.replace("/");
+          });
+        }
+      }
+    });
+  };
+
   return (
     <ul className="relative font-bold font-sans flex-row gap-6  hidden lg:inline-flex">
-      {/* <button onClick={() => login()}>login</button> */}
-      {/* {auth ? <h2>{auth.user?.name}</h2> : <></>} */}
-      <h1>
-        {/* Sabzlearn Header |{auth && auth.user?.email} */}
-        {/* {auth?.user?.email} */}
-      </h1>
       <li>
         <Link href="#" className="m-2">
           صفحه اصلی
@@ -242,7 +252,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
                   جزئیات اکانت
                 </Link>
               </li>
-              <li>
+              <li onClick={logOutHandler}>
                 <Link href="#" className="block px-4 py-2 hover:bg-orange-100">
                   خروج
                 </Link>
