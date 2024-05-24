@@ -1,6 +1,6 @@
 import Footer from "@/components/modules/footer/footer";
-import Navbar from "@/components/modules/navbar/navbar";
 import Articles from "@/components/templates/index/articles/articles";
+import HandleShowNavbar from "@/components/templates/index/handleShowNavbar/handleShowNavbar";
 import Header from "@/components/templates/index/header/header";
 import LatestBread from "@/components/templates/index/latestBread/latestBread";
 import LatestCoffee from "@/components/templates/index/latestCoffee/latestCoffee";
@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
     <main className="bg-white dark:bg-[#2e2b27] relative">
-      <Navbar isLogin={user ? true : false} userName={user?.userName} />
+      <HandleShowNavbar user={user} />
       <Header />
       <LatestCoffee />
       <LatestBread />
