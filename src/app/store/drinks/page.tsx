@@ -17,6 +17,8 @@ async function Drinks() {
             title={drink.name}
             price={drink.price}
             score={drink.score}
+            id={drink._id}
+            key={drink._id}
           />
         ))}
       </div>
