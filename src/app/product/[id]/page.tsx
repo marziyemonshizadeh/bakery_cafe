@@ -23,7 +23,7 @@ async function Product({ params }: ProductProps) {
         <div className="flex lg:flex-row flex-col gap-10 md:gap-60 justify-center items-center md:my-10 my-4">
           <Image
             className="w-72 h-72"
-            alt="notFound"
+            alt="product"
             src={`/images/${product.image}`}
             width={200}
             height={200}
@@ -32,7 +32,7 @@ async function Product({ params }: ProductProps) {
         </div>
         <HandleTab
           product={JSON.parse(JSON.stringify(product))}
-          productID={productID}
+          productID={JSON.parse(JSON.stringify(productID))}
         />
       </div>
     </div>

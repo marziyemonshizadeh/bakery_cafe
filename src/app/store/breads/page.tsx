@@ -17,6 +17,8 @@ async function Breads() {
             title={bread.name}
             price={bread.price}
             score={bread.score}
+            id={bread._id}
+            key={bread._id}
           />
         ))}
       </div>

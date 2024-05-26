@@ -36,20 +36,24 @@ function CommentForm({ productID }: any) {
     }
   };
   return (
-    <div className="flex flex-col leading-10 min-w-[600px]">
+    <div className="flex flex-col leading-10">
       <p className="font-bold">دیدگاه خود را بنویسید</p>
       <p>نشانی ایمیل شما منتشر نخواهد شد. </p>
-      <form className="my-4" action="#" onSubmit={handleSubmit(onSubmit)}>
-        <div className="w-full md:w-1/3  mb-6 md:mb-0">
+      <form
+        className="my-4 lg:w-96"
+        action="#"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className="w-full mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             htmlFor="grid-state"
           >
             امتیاز شما
           </label>
-          <div className="relative">
+          <div className="relative mb-4">
             <select
-              className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 p-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-state"
               {...register("score", { required: true })}
             >
