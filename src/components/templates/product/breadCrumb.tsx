@@ -1,12 +1,32 @@
 import Link from "next/link";
 
-function BreadCrumb({ name }: any) {
+function BreadCrumb({ name, category }: any) {
+  // const [activeTab, setActiveTab] = useState<string>(productsCategory.BREADS);
+  // switch (category) {
+  //   case "نان":
+  //     setActiveTab(productsCategory.BREADS);
+  //     break;
+
+  //   case "قهوه":
+  //     setActiveTab(productsCategory.COFFEES);
+  //     break;
+  //   case "نوشیدنی":
+  //     setActiveTab(productsCategory.DRINKS);
+  //     break;
+  //   case "شیرینی":
+  //     setActiveTab(productsCategory.PASTRIES);
+  //     break;
+  //   default:
+  //     break;
+  // }
+  // console.log(activeTab);
+
   return (
     <nav className="flex" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <Link
-            href="#"
+            href="/"
             className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
           >
             <svg
@@ -39,10 +59,10 @@ function BreadCrumb({ name }: any) {
               />
             </svg>
             <Link
-              href="#"
+              href="/store/coffees"
               className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
             >
-              قهوه
+              {category}
             </Link>
           </div>
         </li>
