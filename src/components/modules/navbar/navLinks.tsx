@@ -35,7 +35,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
   return (
     <ul className="relative font-bold font-sans flex-row gap-6  hidden lg:inline-flex">
       <li>
-        <Link href="#" className="m-2">
+        <Link href="/" className="m-2">
           صفحه اصلی
         </Link>
       </li>
