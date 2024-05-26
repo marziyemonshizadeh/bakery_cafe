@@ -1,8 +1,10 @@
 "use client";
+
 import { loginFormValues } from "@/types/typings";
 import { showSwal } from "@/utils/helpers";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 type Props = {
   showRegisterForm: () => void;
@@ -31,18 +33,20 @@ export default function Login({
     })
       .then((res) => {
         if (res.status === 200) {
-          showSwal(" با موفقیت لاگین شدید", "success", "ورود به سایت");
+          showSwal(" با موفقیت لاگین شدید", "success", "ورود به سایت", "#");
           reset();
-        } else if (res.status === 404) {
-          showSwal("کاربری با این اطلاعات وجود ندارد", "error", "تلاش مجدد");
-        } else if (res.status === 422) {
+          location.replace("/");
+        } else if (res.status === 401 || res.status === 422) {
           showSwal(
-            "ایمیل ، شماره موبایل یا رمر عبور صحیح نمی باشد ",
+            "کاربری با این اطلاعات وجود ندارد",
             "error",
-            "تلاش مجدد"
+            "تلاش مجدد",
+            "#"
           );
         } else if (res.status === 500) {
-          showSwal("مشکل از سرور", "error", "تلاش مجدد");
+          showSwal("مشکل از سرور", "error", "تلاش مجدد", "#");
+        } else if (res.status === 419) {
+          showSwal("ایمیل یا پسورد صحیح نیست ", "error", "تلاش مجدد", "#");
         }
         return res.json();
       })
@@ -54,6 +58,10 @@ export default function Login({
       action="#"
       onSubmit={handleSubmit(onSubmit)}
     >
+      <Link href="/">
+        <FaArrowLeftLong className="float-left" />
+      </Link>
+
       <div>
         <label
           htmlFor="identifier"
