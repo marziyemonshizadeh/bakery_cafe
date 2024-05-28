@@ -7,11 +7,11 @@ import MoreInfoes from "./MoreInfoes";
 import Comments from "./comments";
 import Tab from "./tab";
 
-type HandleTabProps = { product: any };
+type HandleTabProps = { product: any; productID: any };
 
-function HandleTab({ product }: HandleTabProps) {
-  const [activeTab, setActiveTab] = useState<any>(tabs.DESCRIPTION);
-  console.log("activeTab=", activeTab);
+function HandleTab({ product, productID }: HandleTabProps) {
+  const [activeTab, setActiveTab] = useState<string>(tabs.DESCRIPTION);
+
   const showDescriptionTab = () => setActiveTab(tabs.DESCRIPTION);
   const showMoreInfoesTab = () => setActiveTab(tabs.MOREINFOES);
   const showCommentsTab = () => setActiveTab(tabs.COMMENTS);
@@ -30,7 +30,10 @@ function HandleTab({ product }: HandleTabProps) {
         <MoreInfoes smell={product.smell} weight={product.weight} />
       )}
       {activeTab === tabs.COMMENTS && (
-        <Comments comments={JSON.parse(JSON.stringify(product.comments))} />
+        <Comments
+          comments={JSON.parse(JSON.stringify(product.comments))}
+          productID={productID}
+        />
       )}
     </>
   );
