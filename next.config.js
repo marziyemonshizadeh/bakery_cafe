@@ -4,7 +4,13 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
-    domains: ["cdn-icons-png.flaticon.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn-icons-png.flaticon.com",
+        pathname: "**",
+      },
+    ],
   },
 };
 
