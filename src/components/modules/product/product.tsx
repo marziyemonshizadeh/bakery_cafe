@@ -29,7 +29,7 @@ export default async function Product({
         <div className="flex justify-end p-2">
           <AddToWishList
             userID={JSON.parse(JSON.stringify(user._id))}
-            productID={id}
+            productID={id?.toString()}
           />
         </div>
       )}
