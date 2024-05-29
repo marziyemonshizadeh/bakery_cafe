@@ -1,14 +1,18 @@
+import Navbar from "@/components/modules/navbar/navbar";
 import HowDoIFindOutAboutMyPoints from "@/components/templates/SetClub/HowDoIFindOutAboutMyPoints";
 import HowDoIUseMyPoints from "@/components/templates/SetClub/HowDoIUseMyPoints";
 import HowToEarnPoints from "@/components/templates/SetClub/HowToEarnPoints";
 import ClubMember from "@/components/templates/SetClub/clubMember";
 import WeblogHeader from "@/components/templates/weblog/header";
+import { authUser } from "@/utils/auth";
 
-type Props = {};
+const SetClub = async () => {
+  const user = await authUser();
 
-const SetClub = (props: Props) => {
   return (
-    <>
+    <div className="bg-white dark:bg-[#2e2b27]">
+      <Navbar isLogin={user ? true : false} userName={user?.userName} />
+
       <WeblogHeader title="راهنمای باشگاه مشتریان آنلاین" />
       <h2 className="text-2xl font-extrabold text-center m-10">
         راهنمای کامل و جامع باشگاه مشتریان فروشگاه آنلاین
@@ -27,7 +31,7 @@ const SetClub = (props: Props) => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

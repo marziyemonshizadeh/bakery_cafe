@@ -1,10 +1,14 @@
+import Navbar from "@/components/modules/navbar/navbar";
 import WeblogHeader from "@/components/templates/weblog/header";
+import { authUser } from "@/utils/auth";
 
-type Props = {};
+async function TermsAndConditions() {
+  const user = await authUser();
 
-function TermsAndConditions({}: Props) {
   return (
-    <>
+    <div className="bg-white dark:bg-[#2e2b27]">
+      <Navbar isLogin={user ? true : false} userName={user?.userName} />
+
       <WeblogHeader title="شرایط-قوانین " />
       <div className="text-slate-600 leading-9 lg:mx-20 md:mx-10 mx-5 my-10">
         کاربر گرامی لطفاً موارد زیر را جهت استفاده بهینه از خدمات و برنامه‌‏های
@@ -201,7 +205,7 @@ function TermsAndConditions({}: Props) {
         مشاهده هرگونه تخلف، مراتب را از طریق کانال‏‌های ارتباطی ذکر شده با ما در
         میان بگذارید.
       </div>
-    </>
+    </div>
   );
 }
 
