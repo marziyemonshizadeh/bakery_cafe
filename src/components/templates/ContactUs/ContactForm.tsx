@@ -1,13 +1,48 @@
 "use client";
 
 import { contactFormValues } from "@/types/typings";
+import { validateEmail, validatePhone, validateUserName } from "@/utils/auth";
+import { showSwal } from "@/utils/helpers";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function ContactForm() {
   const { register, reset, handleSubmit } = useForm<contactFormValues>();
   const onSubmit: SubmitHandler<contactFormValues> = async (data: any) => {
-    console.log("data", data);
-    reset();
+    const isValidUserName = validateUserName(data.fullName);
+    if (!isValidUserName) {
+      return showSwal(
+        "نام  باید حداقل 5 و حداکثر 16 کاراکتر داشته باشد",
+        "error",
+        "تلاش مجدد ",
+        "#"
+      );
+    }
+
+    const isValidPhone = validatePhone(data.phoneNumber);
+    if (!isValidPhone) {
+      return showSwal(
+        "شماره تماس وارد شده معتبر نیست",
+        "error",
+        "تلاش مجدد ",
+        "#"
+      );
+    }
+
+    const isValidEmail = validateEmail(data.email);
+    if (!isValidEmail) {
+      return showSwal("ایمیل وارد شده معتبر نیست", "error", "تلاش مجدد ", "#");
+    }
+    const res = await fetch("http://localhost:3000/api/contact", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (res.status === 201) {
+      showSwal(" پیام مورد نظر با موفقیت ارسال شد", "success", "فهمیدم", "#");
+      reset();
+    }
   };
   return (
     <div className="flex flex-col leading-10">
@@ -70,7 +105,7 @@ export default function ContactForm() {
               id="companyName"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-[#eacfaa] dark:focus:border-[#eacfaa] focus:outline-none focus:ring-0 focus:border-[#413a2d] peer"
               placeholder=" "
-              {...register("companyName", { required: true })}
+              {...register("companyName")}
             />
             <label
               htmlFor="companyName"
@@ -96,7 +131,7 @@ export default function ContactForm() {
         </div>
         <button
           type="submit"
-          className="text-[#eacfaa] dark:text-[#413a2d] w-[500px] bg-[#413a2d] dark:bg-[#eacfaa]  hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa] font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:hover:bg-[#f6dcb8] dark:focus:ring-blue-800"
+          className="text-[#eacfaa] dark:text-[#413a2d]  bg-[#413a2d] dark:bg-[#eacfaa]  hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa] font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:hover:bg-[#f6dcb8] dark:focus:ring-blue-800"
         >
           ارسال
         </button>
