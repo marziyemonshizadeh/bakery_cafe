@@ -1,11 +1,10 @@
-import Navbar from "@/components/modules/navbar/navbar";
 import { authUser } from "@/utils/auth";
+import React from "react";
+import Navbar from "../modules/navbar/navbar";
 
-export default async function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+type homePageLayoutProps = { children: React.ReactNode };
+
+const HomePageLayout = async ({ children }: homePageLayoutProps) => {
   const user = await authUser();
 
   return (
@@ -14,4 +13,6 @@ export default async function Layout({
       {children}
     </div>
   );
-}
+};
+
+export default HomePageLayout;

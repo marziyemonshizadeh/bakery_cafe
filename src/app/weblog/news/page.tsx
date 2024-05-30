@@ -1,9 +1,10 @@
+import HomePageLayout from "@/components/layouts/homePageLayout";
 import WeblogArticle from "@/components/templates/weblog/article";
 import WeblogHeader from "@/components/templates/weblog/header";
 
 function News() {
   return (
-    <>
+    <HomePageLayout>
       <WeblogHeader title="اخبار و مقالات" />
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 my-10 lg:mx-12 md:mx-2 mx-0">
         <WeblogArticle
@@ -91,7 +92,7 @@ function News() {
           link="#"
         />
       </div>
-    </>
+    </HomePageLayout>
   );
 }
 

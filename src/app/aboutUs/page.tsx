@@ -1,14 +1,9 @@
-import Navbar from "@/components/modules/navbar/navbar";
+import HomePageLayout from "@/components/layouts/homePageLayout";
 import WeblogHeader from "@/components/templates/weblog/header";
-import { authUser } from "@/utils/auth";
 
 async function AboutUs() {
-  const user = await authUser();
-
   return (
-    <div className="bg-white dark:bg-[#2e2b27]">
-      <Navbar isLogin={user ? true : false} userName={user?.userName} />
-
+    <HomePageLayout>
       <WeblogHeader title="درباره ما" />
       <section className="flex lg:flex-row flex-col md:justify-center items-center gap-24 bg-[#F9F9F9] md:p-20 p-8">
         <div>
@@ -71,7 +66,7 @@ async function AboutUs() {
           <p>صاحب امتیاز: شرکت فنجان داغ خوارزمی</p>
         </div>
       </main>
-    </div>
+    </HomePageLayout>
   );
 }
 

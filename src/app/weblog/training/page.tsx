@@ -1,9 +1,10 @@
+import HomePageLayout from "@/components/layouts/homePageLayout";
 import WeblogArticle from "@/components/templates/weblog/article";
 import WeblogHeader from "@/components/templates/weblog/header";
 
 export default function Training() {
   return (
-    <>
+    <HomePageLayout>
       <WeblogHeader title="آموزش" />
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 my-10 lg:mx-12 md:mx-2 mx-0">
         <WeblogArticle
@@ -91,6 +92,6 @@ export default function Training() {
           link="#"
         />
       </div>
-    </>
+    </HomePageLayout>
   );
 }

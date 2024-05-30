@@ -1,16 +1,11 @@
-import Navbar from "@/components/modules/navbar/navbar";
+import HomePageLayout from "@/components/layouts/homePageLayout";
 import ContactForm from "@/components/templates/ContactUs/ContactForm";
 import WeblogHeader from "@/components/templates/weblog/header";
-import { authUser } from "@/utils/auth";
 import { FaPhone } from "react-icons/fa";
 
 async function RegisterComplaints() {
-  const user = await authUser();
-
   return (
-    <div className="bg-white dark:bg-[#2e2b27]">
-      <Navbar isLogin={user ? true : false} userName={user?.userName} />
-
+    <HomePageLayout>
       <WeblogHeader title="ثبت شکایات" />
       <h2 className="font-bold text-xl text-center p-6">
         ثبت شکایات، انتقادات و پیشنهادات فروشگاه قهوه ست
@@ -33,7 +28,7 @@ async function RegisterComplaints() {
         </div>
         <ContactForm />
       </div>
-    </div>
+    </HomePageLayout>
   );
 }
 

@@ -1,14 +1,9 @@
-import Navbar from "@/components/modules/navbar/navbar";
+import HomePageLayout from "@/components/layouts/homePageLayout";
 import WeblogHeader from "@/components/templates/weblog/header";
-import { authUser } from "@/utils/auth";
 
 async function TermsAndConditions() {
-  const user = await authUser();
-
   return (
-    <div className="bg-white dark:bg-[#2e2b27]">
-      <Navbar isLogin={user ? true : false} userName={user?.userName} />
-
+    <HomePageLayout>
       <WeblogHeader title="شرایط-قوانین " />
       <div className="text-slate-600 leading-9 lg:mx-20 md:mx-10 mx-5 my-10">
         کاربر گرامی لطفاً موارد زیر را جهت استفاده بهینه از خدمات و برنامه‌‏های
@@ -205,7 +200,7 @@ async function TermsAndConditions() {
         مشاهده هرگونه تخلف، مراتب را از طریق کانال‏‌های ارتباطی ذکر شده با ما در
         میان بگذارید.
       </div>
-    </div>
+    </HomePageLayout>
   );
 }
 

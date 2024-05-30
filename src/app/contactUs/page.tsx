@@ -1,8 +1,7 @@
-import Navbar from "@/components/modules/navbar/navbar";
+import HomePageLayout from "@/components/layouts/homePageLayout";
 import ContactForm from "@/components/templates/ContactUs/ContactForm";
 import ContactInfo from "@/components/templates/ContactUs/ContactInfo";
 import WeblogHeader from "@/components/templates/weblog/header";
-import { authUser } from "@/utils/auth";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
@@ -11,12 +10,8 @@ const MyMap = dynamic(() => import("@/components/templates/ContactUs/map"), {
 });
 
 async function ContactUs() {
-  const user = await authUser();
-
   return (
-    <div className="bg-white dark:bg-[#2e2b27]">
-      <Navbar isLogin={user ? true : false} userName={user?.userName} />
-
+    <HomePageLayout>
       <WeblogHeader title="تماس با ما" />
       <div className="flex justify-center items-center md:flex-row flex-col lg:gap-20 md:gap-13 gap-10 md:m-24  my-16">
         <MyMap
@@ -67,7 +62,7 @@ async function ContactUs() {
         <ContactInfo />
         <ContactForm />
       </div>
-    </div>
+    </HomePageLayout>
   );
 }
 
