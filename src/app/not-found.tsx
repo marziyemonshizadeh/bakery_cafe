@@ -10,6 +10,7 @@ function notFound() {
         src="/images/404-icon.png"
         width={200}
         height={200}
+        priority
       />
       <p className="font-semibold">صفحه ی مورد نظر متاسفانه یافت نشد!!!</p>
       <Link href="/" className="font-extrabold text-[#F4A518] hover:underline">
