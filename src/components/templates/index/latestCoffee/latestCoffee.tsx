@@ -13,7 +13,7 @@ export default async function LatestCoffee({}: Props) {
   return (
     <div className="relative">
       <Title title=" جدیدترین قهوه ها" />
-      <LinkToDisplayAllProducts href="/store/coffees" />
+      <LinkToDisplayAllProducts href="/store/COFFEES" />
       <div className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 md:gap-2 flex flex-col justify-center gap-1 mt-12 md:mx-40 mx-5">
         {coffees?.slice(0, 4).map((coffee: any) => (
           <Product

@@ -60,7 +60,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
           >
             <li>
               <Link
-                href="/store/breads"
+                href="/store/BREADS"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 نان
@@ -68,7 +68,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/store/coffees"
+                href="/store/COFFEES"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 قهوه
@@ -76,7 +76,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/store/pastries"
+                href="/store/PASTRIES"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 شیرینی
@@ -84,7 +84,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/store/drinks"
+                href="/store/DRINKS"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 نوشیدنی
@@ -103,12 +103,6 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
       {/* <li>
     <Link href="#" className="m-2">
       دیکشنری قهوه
-    </Link>
-  </li> */}
-
-      {/* <li>
-    <Link href="#" className="m-2">
-      باشگاه مشتریان
     </Link>
   </li> */}
 
@@ -146,20 +140,20 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
         </ul>
       </li>
       <li>
-        <Link href="/weblog/setclub" className="flex items-center">
+        <Link href="/setclub" className="flex items-center">
           باشگاه مشتریان
         </Link>
       </li>
 
       <li>
-        <Link href="/weblog/contactUs" className="m-2">
+        <Link href="/contactUs" className="m-2">
           تماس با ما
         </Link>
       </li>
 
       <li className="relative group">
         <Link
-          href="/weblog/aboutUs"
+          href="/aboutUs"
           id="dropdownMenuIconButton"
           data-dropdown-toggle="dropdownDots"
           className="inline-flex items-center text-sm font-medium text-center "
@@ -177,7 +171,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
           >
             <li>
               <Link
-                href="/weblog/aboutUs/TermsAndConditions"
+                href="/aboutUs/TermsAndConditions"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 شرایط و قوانین
@@ -185,7 +179,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
             </li>
             <li>
               <Link
-                href="/weblog/aboutUs/RegisterComplaints"
+                href="/aboutUs/RegisterComplaints"
                 className="block px-4 py-2 hover:bg-orange-100"
               >
                 ثبت شکایات
@@ -238,7 +232,7 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
               </li>
               <li>
                 <Link
-                  href="/wishList"
+                  href="/p-user/wishList"
                   className="block px-4 py-2 hover:bg-orange-100"
                 >
                   علاقه مندی ها

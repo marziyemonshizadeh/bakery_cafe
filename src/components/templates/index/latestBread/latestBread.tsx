@@ -11,7 +11,7 @@ export default async function LatestBread() {
   return (
     <div className="relative">
       <Title title=" جدیدترین نان ها" />
-      <LinkToDisplayAllProducts href="/store/breads" />
+      <LinkToDisplayAllProducts href="/store/BREADS" />
       <div
         // data-aos="fade-down"
         className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid-cols-1 md:gap-2 flex flex-col justify-center gap-1 mt-12 md:mx-40 mx-5"
