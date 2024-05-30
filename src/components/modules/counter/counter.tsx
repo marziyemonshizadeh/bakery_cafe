@@ -31,10 +31,10 @@ function Counter({}: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <>
+    <div>
       <Link
         href="#"
-        className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
+        className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-3 py-1.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
         onClick={(e) => {
           e.preventDefault();
           dispatch({ type: "increment", payload: 1 });
@@ -42,10 +42,10 @@ function Counter({}: Props) {
       >
         +
       </Link>
-      <span> {state.count}</span>
+      <span className="mx-1"> {state.count}</span>
       <Link
         href="#"
-        className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
+        className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-3 py-1.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
         onClick={(e) => {
           e.preventDefault();
           dispatch({ type: "decrement", payload: 1 });
@@ -53,7 +53,7 @@ function Counter({}: Props) {
       >
         -
       </Link>
-    </>
+    </div>
   );
 }
 
