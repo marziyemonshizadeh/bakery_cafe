@@ -1,4 +1,4 @@
-import Navbar from "@/components/modules/navbar/navbar";
+import HomePageLayout from "@/components/layouts/homePageLayout";
 import WishListIsEmpty from "@/components/templates/wishList/WishListIsEmpty";
 import WishListProducts from "@/components/templates/wishList/WishListProducts";
 import WishListModel from "@/models/wishList";
@@ -19,8 +19,7 @@ async function WishList() {
   }
 
   return (
-    <div className="bg-white dark:bg-[#2e2b27]">
-      <Navbar isLogin={user ? true : false} userName={user?.userName} />
+    <HomePageLayout>
       <div className="relative top-28">
         <h2 className="font-bold text-2xl md:mx-16 mx-4 border-b border-x-amber-800 py-4">
           لیست علاقه مندی ها
@@ -31,7 +30,7 @@ async function WishList() {
           <WishListIsEmpty />
         )}
       </div>
-    </div>
+    </HomePageLayout>
   );
 }
 
