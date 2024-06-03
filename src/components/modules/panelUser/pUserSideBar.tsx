@@ -8,11 +8,9 @@ import { IoExitOutline } from "react-icons/io5";
 import { MdOutlineAttachMoney, MdSms } from "react-icons/md";
 import { TbListDetails } from "react-icons/tb";
 
-type Props = {};
-
-function PanelUserSideBar({}: Props) {
+function PanelUserSideBar() {
   const path = usePathname();
-  console.log("path =>", path);
+  // console.log("path =>", path);
 
   return (
     <>
