@@ -1,9 +1,9 @@
-import HomePageLayout from "@/components/layouts/homePageLayout";
-import WishListIsEmpty from "@/components/templates/wishList/WishListIsEmpty";
-import WishListProducts from "@/components/templates/wishList/WishListProducts";
+import Layout from "@/components/layouts/panelUserLayout";
+import WishListIsEmpty from "@/components/templates/p-user/wishList/WishListIsEmpty";
+import WishListProducts from "@/components/templates/p-user/wishList/WishListProducts";
 import WishListModel from "@/models/wishList";
-import { authUser } from "@/utils/auth";
 import connectToDB from "@/utils/db";
+import { authUser } from "@/utils/serverHelpers";
 
 async function WishList() {
   connectToDB();
@@ -19,9 +19,9 @@ async function WishList() {
   }
 
   return (
-    <HomePageLayout>
-      <div className="relative top-28">
-        <h2 className="font-bold text-2xl md:mx-16 mx-4 border-b border-x-amber-800 py-4">
+    <Layout>
+      <div>
+        <h2 className="font-bold text-2xl border-b border-x-amber-800 py-4">
           لیست علاقه مندی ها
         </h2>
         {wishes.length !== 0 ? (
@@ -30,7 +30,7 @@ async function WishList() {
           <WishListIsEmpty />
         )}
       </div>
-    </HomePageLayout>
+    </Layout>
   );
 }
 
