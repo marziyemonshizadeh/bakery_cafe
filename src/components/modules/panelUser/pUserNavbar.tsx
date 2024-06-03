@@ -1,8 +1,11 @@
+import { authUser } from "@/utils/serverHelpers";
 import { IoIosSunny, IoMdNotificationsOutline } from "react-icons/io";
 
-type Props = {};
+type Props = { userName: string; role: string };
 
-function PanelUserNavbar({}: Props) {
+async function PanelUserNavbar({ userName, role }: Props) {
+  const user = await authUser();
+
   return (
     <div className="flex items-center justify-between bg-slate-50 dark:bg-gray-700">
       <div className="flex items-center gap-2">
@@ -12,8 +15,8 @@ function PanelUserNavbar({}: Props) {
           className="w-14 h-14 rounded-full"
         />
         <div>
-          <p className="text-black font-bold text-xl">مرضیه منشی زاده</p>
-          <p className="text-gray-400">ادمین</p>
+          <p className="text-black font-bold text-xl">{userName}</p>
+          <p className="text-gray-400">{role}</p>
         </div>
       </div>
       <div className="flex items-center gap-2">
