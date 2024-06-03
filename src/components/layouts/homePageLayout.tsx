@@ -1,4 +1,4 @@
-import { authUser } from "@/utils/auth";
+import { authUser } from "@/utils/serverHelpers";
 import React from "react";
 import Navbar from "../modules/navbar/navbar";
 

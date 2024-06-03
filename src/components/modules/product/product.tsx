@@ -1,7 +1,7 @@
-import AddToWishList from "@/components/modules/AddToWishList/addToWishList";
-import { authUser } from "@/utils/auth";
+import { authUser } from "@/utils/serverHelpers";
 import Image from "next/image";
 import Link from "next/link";
+import AddToWishList from "../AddToWishList/addToWishList";
 import Counter from "../counter/counter";
 import Scores from "../scores/Scores";
 
@@ -24,7 +24,7 @@ export default async function Product({
   const user = await authUser();
 
   return (
-    <div className="flex flex-col overflow-hidden border border-gray-200 rounded-lg p-2 hover:cursor-pointer hover:bg-[#a59c95]/10 transition-colors z-20 select-none">
+    <div className="w-full max-w-sm border border-gray-200 rounded-lg shadow  hover:bg-[#a59c95]/10 transition-colors z-20 select-none">
       {user && (
         <div className="flex justify-end p-2">
           <AddToWishList
@@ -33,24 +33,39 @@ export default async function Product({
           />
         </div>
       )}
-
-      <Link href={`/product/${id}`} className="mx-auto">
+      <Link href={`/product/${id}`}>
         <Image
-          className="w-48 h-48"
-          alt={title}
+          className="w-56 h-56 p-8 rounded-t-lg mx-auto"
           src={`/${imgUrl}`}
+          alt="product image"
           width={200}
           height={200}
         />
       </Link>
-      <section className="md:px-6 py-2 flex flex-col items-center gap-2">
-        <p className="font-bold text-xl mb-2">{title}</p>
-        <Scores starts={starts} />
-        <span>{price} تومان</span>
-        <div className="flex items-center gap-3">
+      <div className="px-5 pb-5">
+        <Link href={`/product/${id}`}>
+          <h5 className="text-xl text-center font-semibold tracking-tight text-gray-900 dark:text-white mb-4">
+            {title}
+          </h5>
+        </Link>
+        <div className="flex justify-between items-center mt-2.5 mb-5">
+          <div className="flex">
+            <Scores starts={starts} />
+            <span className="bg-orange-100 text-black text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">
+              {starts}.0
+            </span>
+          </div>
           <Counter />
         </div>
-      </section>
+        <div className="flex items-center justify-between">
+          <span className="text-xl font-bold text-gray-900 dark:text-white">
+            {price.toLocaleString()}تومان
+          </span>
+          <button className="bg-[#413a2d] text-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            افزودن
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

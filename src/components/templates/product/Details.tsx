@@ -1,63 +1,53 @@
+import AddToWishList from "@/components/modules/AddToWishList/addToWishList";
 import Scores from "@/components/modules/scores/Scores";
 import SocialMedias from "@/components/modules/socialMedia/socialMedia";
+import { authUser } from "@/utils/serverHelpers";
 import BreadCrumb from "./breadCrumb";
 
-function Details({ product }: any) {
+async function Details({ product }: any) {
+  const user = await authUser();
+
   return (
     <div className="max-w-[600px] leading-10">
-      <BreadCrumb name={product.name} />
-      <h2 className="text-2xl font-extrabold my-2">{product.name}</h2>
+      <BreadCrumb name={product?.name} category={product?.category} />
+      <h2 className="text-2xl font-extrabold my-2">{product?.name}</h2>
       <div className="flex items-center">
-        <Scores starts={Math.trunc(product.score)} />
-        <p className="ms-1">(دیدگاه {product.comments.length} کاربر)</p>
+        <Scores starts={Math.trunc(product?.score)} />
+        <p className="ms-1">(دیدگاه {product?.comments.length} کاربر)</p>
       </div>
       <h2 className="text-2xl font-extrabold">
-        {product.price.toLocaleString()} تومان
+        {product?.price.toLocaleString()} تومان
       </h2>
       <p className="text-slate-600 dark:text-slate-300">
-        {product.shortDescription}
+        {product?.shortDescription}
       </p>
       <hr />
-      {/* <div className="flex items-center gap-3"> */}
-      {/* <Link
-                href="#"
-                className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
-                onClick={(e) => {
-                  e.preventDefault();
-                  dispatch({ type: "increment", payload: 1 });
-                }}
-              >
-                +
-              </Link>
-              <span> {state.count}</span>
-              <Link
-                href="#"
-                className="bg-[#413a2d] text-[#D1B48C] border border-[#D1B48C] dark:bg-[#D1B48C] dark:text-[#413a2d] shadow shadow-[#D1B48C] font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-[#4d4435] focus:ring-1 focus:outline-none focus:ring-[#eacfaa]  sm:w-auto dark:hover:bg-[#f6dcb8]"
-                onClick={(e) => {
-                  e.preventDefault();
-                  dispatch({ type: "decrement", payload: 1 });
-                }}
-              >
-                -
-              </Link> */}
-      {/* </div> */}
       <hr />
       <ul>
-        <li className="font-semibold">شناسه محصول: {product._id}</li>
+        <li className="font-semibold">شناسه محصول: {product?._id}</li>
         <li>
           <p>
             <span className="font-semibold">دسته :</span>
-            {product.category}
+            {product?.category}
           </p>
         </li>
         <li>
           <span className="font-semibold">برچسب :</span>
-          {product.tags.join(" ,")}
+          {product?.tags.join(" ,")}
         </li>
         <li className="flex">
           <span className="font-semibold">به اشتراک گذاری: </span>
           <SocialMedias />
         </li>
+        {user && (
+          <li className="flex items-center gap-2">
+            <span className="font-semibold">اضافه کردن به علاقه مندی ها:</span>
+            <AddToWishList
+              userID={JSON.parse(JSON.stringify(user?._id))}
+              productID={product?._id}
+            />
+          </li>
+        )}
       </ul>
       <hr />
     </div>
