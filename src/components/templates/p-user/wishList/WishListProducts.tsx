@@ -9,7 +9,7 @@ function WishListProducts({ wishes }: WishListProductsProps) {
         wishes.map((wish: any) => (
           <WishProduct
             key={wish._id}
-            id={String(wish.productID._id)}
+            productID={String(wish.productID._id)}
             imgUrl={`images/${wish.productID.image}`}
             title={wish.productID.name}
             price={wish.productID.price}
