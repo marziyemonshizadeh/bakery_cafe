@@ -26,7 +26,7 @@ export default function Promote({}: Props) {
             خرید قهوه ، به سبک حرفه ای ها
           </h2>
           <div>زیبایی امروز رو با قهوه بیشتر کنید</div>
-          <Link href="#" className="hover:underline">
+          <Link href="/contactUs" className="hover:underline">
             تماس با ما
           </Link>
         </div>
