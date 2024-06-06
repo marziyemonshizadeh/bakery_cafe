@@ -4,14 +4,21 @@ import { productFormValues } from "@/types/typings";
 import { showSwal } from "@/utils/helpers";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-function CommentForm({ productID }: any) {
-  console.log("productID comment form ", productID);
-
+function CommentForm({ productID, userID }: any) {
   const { register, reset, handleSubmit } = useForm<productFormValues>();
   const onSubmit: SubmitHandler<productFormValues> = async (data: any) => {
+    if (!userID) {
+      return showSwal(
+        "لطفا اول لاگین کنید سپس نظر خود را ثبت کنید !",
+        "error",
+        "ok",
+        "/login-register"
+      );
+    }
     let newdata = {
       ...data,
       productID: productID,
+      userID: userID,
       date: Date.now(),
     };
     const res = await fetch("/api/comments", {
@@ -22,7 +29,7 @@ function CommentForm({ productID }: any) {
       body: JSON.stringify(newdata),
     });
     if (res.status === 201) {
-      showSwal("کامنت مورد نظر با موفقیت ثبت شد :)", "success", "ok", "/");
+      showSwal("کامنت مورد نظر با موفقیت ثبت شد :)", "success", "ok", "#");
       reset();
     } else if (res.status === 422) {
       showSwal(
