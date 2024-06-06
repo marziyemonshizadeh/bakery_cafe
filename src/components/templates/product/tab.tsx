@@ -1,10 +1,10 @@
 import { tabs } from "@/utils/constants";
 
 type TabProps = {
-  activeTab: any;
-  showDescriptionTab: any;
-  showMoreInfoesTab: any;
-  showCommentsTab: any;
+  activeTab: string;
+  showDescriptionTab: () => void;
+  showMoreInfoesTab: () => void;
+  showCommentsTab: () => void;
 };
 
 function Tab({
