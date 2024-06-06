@@ -5,6 +5,7 @@ import { showSwal } from "@/utils/helpers";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaArrowLeftLong } from "react-icons/fa6";
+const swal = require("sweetalert");
 
 type Props = {
   showRegisterForm: () => void;
@@ -21,7 +22,7 @@ export default function Login({
     register,
     reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<loginFormValues>();
   const onSubmit: SubmitHandler<loginFormValues> = async (data: any) => {
     await fetch("api/auth/logIn", {
@@ -33,9 +34,14 @@ export default function Login({
     })
       .then((res) => {
         if (res.status === 200) {
-          showSwal(" با موفقیت لاگین شدید", "success", "ورود به سایت", "#");
-          reset();
-          location.replace("/");
+          swal({
+            title: " با موفقیت لاگین شدید",
+            icon: "success",
+            button: "ورود به سایت",
+          }).then(() => {
+            reset();
+            location.replace("/");
+          });
         } else if (res.status === 401 || res.status === 422) {
           showSwal(
             "کاربری با این اطلاعات وجود ندارد",
@@ -124,6 +130,7 @@ export default function Login({
       </div>
       <button
         type="submit"
+        disabled={isSubmitting}
         className="w-full text-dark bg-zinc-300 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
       >
         ورود

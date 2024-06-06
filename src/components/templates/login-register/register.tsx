@@ -1,4 +1,5 @@
 "use client";
+
 import { registerFormValues } from "@/types/typings";
 import {
   validateEmail,
@@ -9,6 +10,7 @@ import {
 import { showSwal } from "@/utils/helpers";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
+const swal = require("sweetalert");
 
 type Props = {
   showloginForm: () => void;
@@ -18,7 +20,7 @@ export default function Register({ showloginForm }: Props) {
     register,
     reset,
     handleSubmit,
-    formState: { isDirty, isValid },
+    formState: { isDirty, isValid, isSubmitting },
   } = useForm<registerFormValues>();
   const onSubmit: SubmitHandler<registerFormValues> = async (data: any) => {
     if (!data.userName.trim()) {
@@ -68,12 +70,15 @@ export default function Register({ showloginForm }: Props) {
       body: JSON.stringify(data),
     });
     if (res.status === 201) {
-      showSwal(
-        "ثبت نام با موفقیت انجام شد",
-        "success",
-        "ورود به پنل کاربری",
-        "/"
-      );
+      swal({
+        title: "ثبت نام با موفقیت انجام شد",
+        icon: "success",
+        button: "ورود به پنل کاربری",
+      }).then(() => {
+        reset();
+        location.replace("/");
+      });
+
       reset();
     } else if (res.status === 422) {
       showSwal(
@@ -160,7 +165,7 @@ export default function Register({ showloginForm }: Props) {
       <button
         type="submit"
         className="w-full text-dark bg-zinc-300 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-        disabled={!isDirty || !isValid}
+        disabled={!isDirty || !isValid || isSubmitting}
       >
         ثبت نام
       </button>
