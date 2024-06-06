@@ -3,6 +3,7 @@ import Details from "@/components/templates/product/Details";
 import HandleTab from "@/components/templates/product/handleTab";
 import productModel from "@/models/product";
 import connectToDB from "@/utils/db";
+import { authUser } from "@/utils/serverHelpers";
 import Image from "next/image";
 
 type ProductProps = { params: any };
@@ -13,6 +14,12 @@ async function Product({ params }: ProductProps) {
   const product = await productModel
     .findOne({ _id: productID })
     .populate("comments");
+
+  const user = await authUser();
+  let userID = null;
+  if (user) {
+    userID = JSON.parse(JSON.stringify(user?._id));
+  }
 
   return (
     <HomePageLayout>
@@ -30,6 +37,7 @@ async function Product({ params }: ProductProps) {
         <HandleTab
           product={JSON.parse(JSON.stringify(product))}
           productID={JSON.parse(JSON.stringify(productID))}
+          userID={userID}
         />
       </div>
     </HomePageLayout>

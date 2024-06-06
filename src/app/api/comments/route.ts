@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   try {
     connectToDB();
     const body = await request.json();
-    const { name, email, message, score, date, productID } = body;
+    const { name, email, message, score, date, productID, userID } = body;
 
     const comment = await commentModel.create({
       name,
@@ -20,6 +20,7 @@ export async function POST(request: Request) {
       score,
       date,
       productID,
+      userID,
     });
     const updatedProduct = await productModel.findOneAndUpdate(
       { _id: productID },

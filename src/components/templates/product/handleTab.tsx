@@ -7,14 +7,15 @@ import MoreInfoes from "./MoreInfoes";
 import Comments from "./comments";
 import Tab from "./tab";
 
-type HandleTabProps = { product: any; productID: any };
+type HandleTabProps = { product: any; productID: number; userID?: any };
 
-function HandleTab({ product, productID }: HandleTabProps) {
+function HandleTab({ product, productID, userID }: HandleTabProps) {
   const [activeTab, setActiveTab] = useState<string>(tabs.DESCRIPTION);
 
   const showDescriptionTab = () => setActiveTab(tabs.DESCRIPTION);
   const showMoreInfoesTab = () => setActiveTab(tabs.MOREINFOES);
   const showCommentsTab = () => setActiveTab(tabs.COMMENTS);
+
   return (
     <>
       <Tab
@@ -33,6 +34,7 @@ function HandleTab({ product, productID }: HandleTabProps) {
         <Comments
           comments={JSON.parse(JSON.stringify(product.comments))}
           productID={productID}
+          userID={userID}
         />
       )}
     </>

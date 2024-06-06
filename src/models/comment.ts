@@ -1,5 +1,6 @@
 const { default: mongoose } = require("mongoose");
 require("./product");
+require("./user");
 
 const schema = mongoose.Schema({
   name: {
@@ -34,6 +35,11 @@ const schema = mongoose.Schema({
   productID: {
     type: mongoose.Types.ObjectId,
     ref: "product",
+    required: true,
+  },
+  userID: {
+    type: mongoose.Types.ObjectId,
+    ref: "user",
     required: true,
   },
 });
