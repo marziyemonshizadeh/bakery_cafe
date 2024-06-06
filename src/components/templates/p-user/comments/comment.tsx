@@ -1,10 +1,11 @@
 "use client";
 import Scores from "@/components/modules/scores/Scores";
+import { showSwal } from "@/utils/helpers";
 import Link from "next/link";
 const swal = require("sweetalert");
 
 type UserCommentProps = {
-  isAccess: boolean;
+  isAccept: boolean;
   id: number;
   date: string;
   title: string;
@@ -12,24 +13,15 @@ type UserCommentProps = {
   product: string;
 };
 export default function UserComment({
-  isAccess,
+  isAccept,
   id,
   date,
   title,
   stars,
   product,
 }: UserCommentProps) {
-  const removeCommentHandler = () => {
-    swal({
-      title: "می خواهید کامنت خود را حذف کنید ؟",
-      icon: "warning",
-      buttons: ["خیر", "بله"],
-    }).then(async (result: any) => {
-      console.log("hazf comment");
-    });
-  };
   const showComment = () => {
-    swal({ title, button: "اوکی" });
+    showSwal(title, undefined, "اوکی", "#");
   };
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -48,10 +40,10 @@ export default function UserComment({
         <Link
           href="#"
           className={`font-medium ${
-            isAccess ? "text-lime-500" : "text-yellow-500"
+            isAccept ? "text-lime-500" : "text-yellow-500"
           } hover:underline`}
         >
-          {isAccess ? "تایید شده" : "در انتظار تایید"}
+          {isAccept ? "تایید شده" : "در انتظار تایید"}
         </Link>
       </td>
       <td className="px-6 py-4 text-right">
@@ -61,23 +53,6 @@ export default function UserComment({
           onClick={showComment}
         >
           مشاهده
-        </Link>
-      </td>
-      <td className="px-6 py-4 text-right">
-        <Link
-          href="#"
-          className="font-medium text-black dark:text-blue-500 hover:underline"
-          onClick={removeCommentHandler}
-        >
-          حذف
-        </Link>
-      </td>
-      <td className="px-6 py-4 text-right">
-        <Link
-          href="#"
-          className="font-medium text-black dark:text-blue-500 hover:underline"
-        >
-          ویرایش
         </Link>
       </td>
     </tr>

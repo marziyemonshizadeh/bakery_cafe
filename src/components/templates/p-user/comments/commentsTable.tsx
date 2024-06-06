@@ -1,6 +1,9 @@
 import UserComment from "./comment";
 
-function CommentsTable() {
+type CommentsTableProps = {
+  comments: [];
+};
+function CommentsTable({ comments }: CommentsTableProps) {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg my-12 border border-orange-950 text-orange-950">
       <table className="w-full text-sm text-left rtl:text-right  dark:text-gray-400 ">
@@ -24,47 +27,22 @@ function CommentsTable() {
             <th scope="col" className="px-6 py-3">
               مشاهده
             </th>
-            <th scope="col" className="px-6 py-3">
-              حذف
-            </th>
-            <th scope="col" className="px-6 py-3">
-              ویرایش
-            </th>
           </tr>
         </thead>
         <tbody>
-          <UserComment
-            isAccess={false}
-            id={1}
-            date="1402/10/23"
-            product="قهوه عربیکا"
-            stars={3}
-            title="خیلی خوشمزه بود من راضی بودم"
-          />
-          <UserComment
-            isAccess={true}
-            id={2}
-            date="1402/10/23"
-            product="آیس کافی"
-            stars={5}
-            title="عالی بود"
-          />
-          <UserComment
-            isAccess={false}
-            id={3}
-            date="1402/10/23"
-            product="کاپوچینو"
-            stars={2}
-            title="سرد بود راضی نبودم"
-          />
-          <UserComment
-            isAccess={false}
-            id={4}
-            date="1402/10/23"
-            product="قهوه ترک"
-            stars={4}
-            title="خیلی با کیفیت بود"
-          />
+          {comments?.map((comment: any, index) => {
+            return (
+              <UserComment
+                key={comment._id}
+                isAccept={comment.isAccept}
+                id={index + 1}
+                date={new Date(comment.date).toLocaleDateString("fa-IR")}
+                product={comment.productID.name}
+                stars={comment.score}
+                title={comment.message}
+              />
+            );
+          })}
         </tbody>
       </table>
     </div>
