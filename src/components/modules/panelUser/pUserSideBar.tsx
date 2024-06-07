@@ -6,12 +6,11 @@ import { FaComments, FaHeart, FaShoppingBag, FaUsers } from "react-icons/fa";
 import { ImReply } from "react-icons/im";
 import { IoExitOutline } from "react-icons/io5";
 import { MdOutlineAttachMoney, MdSms } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
 
 function PanelUserSideBar() {
   const path = usePathname();
-  // console.log("path =>", path);
-
   return (
     <>
       <h2 className="font-extrabold text-lg p-3 border-solid border-b text-center md:text-right border-orange-950">
@@ -73,6 +72,15 @@ function PanelUserSideBar() {
             >
               <TbListDetails className="icon" />
               <span className="font-extrabold text-lg mx-2">جزئیات اکانت</span>
+            </Link>
+            <Link
+              href="/p-user/changePassword"
+              className={`flex items-center gap-2 px-2 py-1 ${
+                path == "/p-user/changePassword" && "bg-white"
+              }`}
+            >
+              <RiLockPasswordFill className="icon" />
+              <span className="font-extrabold text-lg mx-2">تغییر پسورد</span>
             </Link>
           </>
         ) : (

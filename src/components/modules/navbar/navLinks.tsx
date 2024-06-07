@@ -208,6 +208,14 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
             >
               <li>
                 <Link
+                  href="/p-user"
+                  className="block px-4 py-2 hover:bg-orange-100"
+                >
+                  پنل کاربری
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/p-user/orders"
                   className="block px-4 py-2 hover:bg-orange-100"
                 >
@@ -244,6 +252,14 @@ function NavLinks({ isLogin, userName }: NavLinksProps) {
                   className="block px-4 py-2 hover:bg-orange-100"
                 >
                   جزئیات اکانت
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/p-user/changePassword"
+                  className="block px-4 py-2 hover:bg-orange-100"
+                >
+                  تغییر پسورد
                 </Link>
               </li>
               <li onClick={logOutHandler}>
