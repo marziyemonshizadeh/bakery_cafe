@@ -16,7 +16,7 @@ export interface verifyCodeFormValues {
   code: number;
 }
 export interface forgetPasswordFormValues {
-  identifier: number | string;
+  phoneNumber: number | string;
 }
 export interface setNewPasswordFormValues {
   code: number;
@@ -34,4 +34,12 @@ export interface productFormValues {
   name: string;
   score: number;
   message: string;
+}
+export interface accountDetailsFormValues {
+  email: string;
+  userName: string;
+  phoneNumber: number;
+}
+export interface changePasswordValues {
+  password: string;
 }
