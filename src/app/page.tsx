@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <main className="bg-white dark:bg-[#2e2b27] relative">
-      <HandleShowNavbar user={user} />
+      <HandleShowNavbar user={JSON.parse(JSON.stringify(user))} />
       <Header />
       <LatestCoffee />
       <LatestBread />
