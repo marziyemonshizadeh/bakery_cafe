@@ -12,7 +12,7 @@ function CommentForm({ productID, userID }: any) {
         "لطفا اول لاگین کنید سپس نظر خود را ثبت کنید !",
         "error",
         "ok",
-        "/login-register"
+        "/login-registerm"
       );
     }
     let newdata = {
