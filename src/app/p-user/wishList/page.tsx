@@ -1,4 +1,5 @@
 import Layout from "@/components/layouts/panelUserLayout";
+import Title from "@/components/modules/panelUser/panelUserTitle";
 import WishListIsEmpty from "@/components/templates/p-user/wishList/WishListIsEmpty";
 import WishListProducts from "@/components/templates/p-user/wishList/WishListProducts";
 import WishListModel from "@/models/wishList";
@@ -20,16 +21,12 @@ async function WishList() {
 
   return (
     <Layout>
-      <div>
-        <h2 className="font-bold text-2xl border-b border-x-amber-800 py-4">
-          لیست علاقه مندی ها
-        </h2>
-        {wishes.length !== 0 ? (
-          <WishListProducts wishes={JSON.parse(JSON.stringify(wishes))} />
-        ) : (
-          <WishListIsEmpty />
-        )}
-      </div>
+      <Title text="علاقه مندی ها" />
+      {wishes.length !== 0 ? (
+        <WishListProducts wishes={JSON.parse(JSON.stringify(wishes))} />
+      ) : (
+        <WishListIsEmpty />
+      )}
     </Layout>
   );
 }
