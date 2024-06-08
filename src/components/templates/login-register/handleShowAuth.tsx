@@ -1,3 +1,5 @@
+"use client";
+
 import ForgetPas from "@/components/templates/login-register/forgetPas";
 import Login from "@/components/templates/login-register/login";
 import Register from "@/components/templates/login-register/register";
@@ -5,14 +7,13 @@ import SendSms from "@/components/templates/login-register/sendSms";
 import SetNewPassword from "@/components/templates/login-register/setNewPassword";
 import VerifyCode from "@/components/templates/login-register/verifyCode";
 import { authTypes } from "@/utils/constants";
-import { Dispatch, SetStateAction } from "react";
+import { useState } from "react";
 
-type HandleShowAuthProps = {
-  setAuthType: Dispatch<SetStateAction<string>>;
-  authType: string;
-};
+type HandleShowAuthProps = {};
 
-function HandleShowAuth({ setAuthType, authType }: HandleShowAuthProps) {
+function HandleShowAuth({}: HandleShowAuthProps) {
+  const [authType, setAuthType] = useState(authTypes.LOGIN);
+
   const showRegisterForm = () => setAuthType(authTypes.REGISTER);
   const showloginForm = () => setAuthType(authTypes.LOGIN);
   const showSmsForm = () => setAuthType(authTypes.SENDSMS);
@@ -43,7 +44,7 @@ function HandleShowAuth({ setAuthType, authType }: HandleShowAuthProps) {
       {authType === authTypes.FORGETPASSWORD && (
         <ForgetPas
           showloginForm={showloginForm}
-          showRegisterForm={showRegisterForm}
+          // showRegisterForm={showRegisterForm}
           showSetNewPasswordForm={showSetNewPasswordForm}
         />
       )}
