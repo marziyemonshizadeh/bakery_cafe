@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" suppressHydrationWarning={true}>
       <body>
         <ThemeProv>
-          <div className="static">
+          <div className="static scrollbar-thin scrollbar-thumb-[#413a2d] dark:scrollbar-thumb-[#D1B48C] scrollbar-track-[#D1B48C] dark:scrollbar-track-[#413a2d] h-screen overflow-y-scroll">
             <AosInit />
             {children}
             <ScrollToTop />
