@@ -2,12 +2,14 @@
 
 import { loginFormValues } from "@/types/typings";
 import { showSwal } from "@/utils/helpers";
+import { LoginFormSchema } from "@/validators/loginFormRegister";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaArrowLeftLong } from "react-icons/fa6";
 const swal = require("sweetalert");
 
-type Props = {
+type LoginProps = {
   showRegisterForm: () => void;
   showSmsForm: () => void;
   showForgetPassForm: () => void;
@@ -17,14 +19,16 @@ export default function Login({
   showRegisterForm,
   showSmsForm,
   showForgetPassForm,
-}: Props) {
+}: LoginProps) {
   const {
     register,
     reset,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<loginFormValues>();
-  const onSubmit: SubmitHandler<loginFormValues> = async (data: any) => {
+  } = useForm<loginFormValues>({ resolver: zodResolver(LoginFormSchema) });
+  const onSubmit: SubmitHandler<loginFormValues> = async (
+    data: loginFormValues
+  ) => {
     await fetch("api/auth/logIn", {
       method: "POST",
       headers: {
@@ -80,9 +84,12 @@ export default function Login({
           id="identifier"
           placeholder="name@company.com"
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          // required
           {...register("identifier", { required: true })}
         />
-        {errors.identifier && <div className="text-pink-700">...</div>}
+        {errors.identifier && (
+          <span className="text-red-500">{errors.identifier.message}</span>
+        )}
       </div>
       <div>
         <label
@@ -98,7 +105,9 @@ export default function Login({
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           {...register("password", { required: true })}
         />
-        {errors.password && <div className="text-pink-700">...</div>}
+        {errors.password && (
+          <span className="text-red-500">{errors.password.message}</span>
+        )}
       </div>
       <div className="flex items-center justify-between">
         <div className="flex items-start">
