@@ -2,7 +2,7 @@ const swal = require("sweetalert");
 
 const showSwal = (
   title: string,
-  icon: string,
+  icon: string | undefined,
   buttons: string,
   url: Location | (string & Location) | any
 ) => {
