@@ -1,5 +1,7 @@
 "use client";
 import { accountDetailsFormValues } from "@/types/typings";
+import { AccountDetailsFormSchema } from "@/validators/accountDetailsFormRegister";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 const swal = require("sweetalert");
 
@@ -10,16 +12,17 @@ function AccountDetailsForm({ user }: AccountDetailsFormProps) {
     register,
     reset,
     handleSubmit,
-    formState: { isDirty, isValid, isSubmitting },
+    formState: { isDirty, errors, isSubmitting },
   } = useForm<accountDetailsFormValues>({
     defaultValues: {
       userName: user.userName,
       email: user.email,
       phoneNumber: user.phoneNumber,
     },
+    resolver: zodResolver(AccountDetailsFormSchema),
   });
   const onSubmit: SubmitHandler<accountDetailsFormValues> = async (
-    data: any
+    data: accountDetailsFormValues
   ) => {
     console.log("submited", data);
     const res = await fetch("/api/user", {
@@ -61,6 +64,9 @@ function AccountDetailsForm({ user }: AccountDetailsFormProps) {
             required
             {...register("userName", { required: true })}
           />
+          {errors.userName && (
+            <span className="text-red-500">{errors.userName.message}</span>
+          )}
         </div>
 
         <div className="mb-5">
@@ -77,6 +83,9 @@ function AccountDetailsForm({ user }: AccountDetailsFormProps) {
             required
             {...register("email", { required: true })}
           />
+          {errors.email && (
+            <span className="text-red-500">{errors.email.message}</span>
+          )}
         </div>
 
         <div className="mb-5">
@@ -95,16 +104,19 @@ function AccountDetailsForm({ user }: AccountDetailsFormProps) {
             required
             {...register("phoneNumber", { required: true })}
           />
+          {errors.phoneNumber && (
+            <span className="text-red-500">{errors.phoneNumber.message}</span>
+          )}
         </div>
 
         <button
           type="submit"
           className={`text-[#eacfaa] dark:text-[#413a2d]   ${
-            !isDirty || !isValid || isSubmitting
+            !isDirty || isSubmitting
               ? "bg-[#413a2dec]"
               : "bg-[#413a2d] dark:bg-[#eacfaa] hover:bg-[#4d4435] focus:ring-1 focus:ring-[#eacfaa] dark:hover:bg-[#f6dcb8] dark:focus:ring-blue-800"
           }   focus:outline-none  font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center`}
-          disabled={!isDirty || !isValid || isSubmitting}
+          disabled={!isDirty || isSubmitting}
         >
           ثبت تغییرات
         </button>
