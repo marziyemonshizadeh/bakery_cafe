@@ -1,67 +1,27 @@
 "use client";
 
 import { registerFormValues } from "@/types/typings";
-import {
-  validateEmail,
-  validatePassword,
-  validatePhone,
-  validateUserName,
-} from "@/utils/auth";
+
 import { showSwal } from "@/utils/helpers";
+import { signUpFormSchema } from "@/validators/signUpFormRegister";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 const swal = require("sweetalert");
 
-type Props = {
+type RegisterProps = {
   showloginForm: () => void;
 };
-export default function Register({ showloginForm }: Props) {
+export default function Register({ showloginForm }: RegisterProps) {
   const {
     register,
     reset,
     handleSubmit,
-    formState: { isDirty, isValid, isSubmitting },
-  } = useForm<registerFormValues>();
-  const onSubmit: SubmitHandler<registerFormValues> = async (data: any) => {
-    if (!data.userName.trim()) {
-      return showSwal("نام را وارد بکنید", "error", "تلاش مجدد", "#");
-    }
-
-    const isValidUserName = validateUserName(data.userName);
-    if (!isValidUserName) {
-      return showSwal(
-        "نام کاربری باید حداقل 5 و حداکثر 16 کاراکتر داشته باشد",
-        "error",
-        "تلاش مجدد ",
-        "#"
-      );
-    }
-
-    const isValidPhone = validatePhone(data.phoneNumber);
-    if (!isValidPhone) {
-      return showSwal(
-        "شماره تماس وارد شده معتبر نیست",
-        "error",
-        "تلاش مجدد ",
-        "#"
-      );
-    }
-
-    const isValidEmail = validateEmail(data.email);
-    if (!isValidEmail) {
-      return showSwal("ایمیل وارد شده معتبر نیست", "error", "تلاش مجدد ", "#");
-    }
-
-    const isValidPassword = validatePassword(data.password);
-    if (!isValidPassword) {
-      return showSwal(
-        "لطفا رمز عبور امن تری را وارد کنید !",
-        "error",
-        "تلاش مجدد ",
-        "#"
-      );
-    }
-
+    formState: { errors, isDirty, isSubmitting },
+  } = useForm<registerFormValues>({ resolver: zodResolver(signUpFormSchema) });
+  const onSubmit: SubmitHandler<registerFormValues> = async (
+    data: registerFormValues
+  ) => {
     const res = await fetch("api/auth/register", {
       method: "POST",
       headers: {
@@ -73,7 +33,7 @@ export default function Register({ showloginForm }: Props) {
       swal({
         title: "ثبت نام با موفقیت انجام شد",
         icon: "success",
-        button: "ورود به پنل کاربری",
+        button: "ورود به  صفحه ی اصلی",
       }).then(() => {
         reset();
         location.replace("/");
@@ -112,6 +72,9 @@ export default function Register({ showloginForm }: Props) {
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           {...register("userName", { required: true })}
         />
+        {errors.userName && (
+          <span className="text-red-500">{errors.userName.message}</span>
+        )}
       </div>
 
       <div>
@@ -128,6 +91,9 @@ export default function Register({ showloginForm }: Props) {
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           {...register("email", { required: true })}
         />
+        {errors.email && (
+          <span className="text-red-500">{errors.email.message}</span>
+        )}
       </div>
 
       <div>
@@ -144,6 +110,9 @@ export default function Register({ showloginForm }: Props) {
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           {...register("phoneNumber", { required: true })}
         />
+        {errors.phoneNumber && (
+          <span className="text-red-500">{errors.phoneNumber.message}</span>
+        )}
       </div>
 
       <div>
@@ -160,12 +129,15 @@ export default function Register({ showloginForm }: Props) {
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           {...register("password", { required: true })}
         />
+        {errors.password && (
+          <span className="text-red-500">{errors.password.message}</span>
+        )}
       </div>
 
       <button
         type="submit"
         className="w-full text-dark bg-zinc-300 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-        disabled={!isDirty || !isValid || isSubmitting}
+        disabled={!isDirty || isSubmitting}
       >
         ثبت نام
       </button>
