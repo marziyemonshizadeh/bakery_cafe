@@ -15,7 +15,10 @@ export default async function Home() {
   const user = await authUser();
 
   return (
-    <main className="bg-white dark:bg-[#2e2b27] relative">
+    <main
+      className="bg-white dark:bg-[#2e2b27] relative"
+      style={{ contain: "paint" }}
+    >
       <HandleShowNavbar user={JSON.parse(JSON.stringify(user))} />
       <Header />
       <LatestCoffee />
