@@ -32,7 +32,6 @@ export default function WishProduct({
         const res = await fetch(`/api/wishList/${productID}`, {
           method: "DELETE",
         });
-        console.log("Res ->", res);
 
         if (res.status === 200) {
           swal({

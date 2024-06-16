@@ -1,17 +1,16 @@
 "use client";
 
+const swal = require("sweetalert");
 import { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-type AddToWishListProps = { userID: any; productID: any };
+type AddToWishListProps = { userID: number; productID: string | undefined };
 
 function AddToWishList({ userID, productID }: AddToWishListProps) {
   const [isLike, setIsLike] = useState(false);
 
   const handleLikeProduct = async () => {
-    const res = await fetch("http://localhost:3000/api/wishList", {
+    const res = await fetch("/api/wishList", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -21,36 +20,32 @@ function AddToWishList({ userID, productID }: AddToWishListProps) {
 
     setIsLike((prev) => !prev);
     if (res.status === 201) {
-      return toast.success("product added wishlist successfully!", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
+      swal({
+        title: "محصول مورد نظر با موفقیت به علاقه مندی ها اضافه شد   !",
+        icon: "success",
+        buttons: "فهمیدم",
       });
     }
   };
 
-  const handleUnLikeProduct = () => {
+  const handleUnLikeProduct = async () => {
     setIsLike((prev) => !prev);
-    toast.success("product removed wishlist successfully!", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
+    const res = await fetch(`/api/wishList/${productID}`, {
+      method: "DELETE",
     });
+    if (res.status === 200) {
+      swal({
+        title: "محصول مورد نظر با موفقیت از علاقه مندی ها حذف شد   !",
+        icon: "success",
+        buttons: "فهمیدم",
+      }).then(() => {
+        location.reload();
+      });
+    }
   };
 
   return (
     <>
-      <ToastContainer />
       {isLike ? (
         <FaHeart
           className="icon"
