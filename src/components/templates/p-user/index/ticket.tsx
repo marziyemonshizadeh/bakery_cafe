@@ -6,7 +6,7 @@ export default function Ticket({}: Props) {
   return (
     <Link
       href={`/p-user/tickets/answer/2323`}
-      className="bg-[#441010] text-slate-50 flex justify-between items-center rounded-md m-2 p-3 leading-8"
+      className="bg-[#441010] text-slate-50 flex justify-between items-center rounded-md m-2 p-4 leading-8"
     >
       <div>
         <p>حجم بسته بندی</p>

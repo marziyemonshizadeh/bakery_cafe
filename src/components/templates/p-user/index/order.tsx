@@ -6,7 +6,7 @@ function Order({}: Props) {
   return (
     <Link
       href={`/p-user/tickets/answer/2323`}
-      className="text-[#441010] bg-slate-50 flex justify-between items-center rounded-md m-2 p-3 font-bold leading-10"
+      className="text-[#441010] bg-slate-50 flex justify-between items-center rounded-md m-2 p-4 font-bold leading-10"
     >
       {/* bg-[#711d1c21] */}
       <div>
