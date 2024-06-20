@@ -1,16 +1,23 @@
 "use client";
 
-import { LatLngExpression } from "leaflet";
+import { LatLngExpression, icon } from "leaflet";
 import "leaflet-defaulticon-compatibility";
-import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css"; // Re-uses images from ~leaflet package
+// import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+// import icon from 'leaflet/dist/images/marker-icon.png';
+// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 type MapProps = {
   position: LatLngExpression;
   center: LatLngExpression;
   children: React.ReactNode;
 };
+
+const ICON = icon({
+  iconUrl: "/images/location-icon.png",
+  iconSize: [32, 32],
+});
 function Map({ position, center, children }: MapProps) {
   return (
     <div className="relative">
@@ -24,7 +31,7 @@ function Map({ position, center, children }: MapProps) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
+        <Marker position={position} icon={ICON}>
           <Popup>cafe bakery</Popup>
         </Marker>
       </MapContainer>
