@@ -1,20 +1,34 @@
 import LinkToDisplayAllProducts from "@/components/modules/LinkToDisplayAllProducts/LinkToDisplayAllProducts";
-import Product from "@/components/modules/product/product";
 import Title from "@/components/modules/titleSection/titleSection";
-import productModel from "@/models/product";
-import connectToDB from "@/utils/db";
 
-type Props = {};
+import { fetchProducts } from "@/fetcher/fetchProducts";
+// import productModel from "@/models/product";
+// import connectToDB from "@/utils/db";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
+import GetLatestCoffee from "./getLatestCoffee";
+type LatestCoffeeProps = {};
 
-export default async function LatestCoffee({}: Props) {
-  connectToDB();
-  const coffees = await productModel.find({ category: "قهوه" });
+const LatestCoffee = async ({}: LatestCoffeeProps) => {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
+  // connectToDB();
+  // const coffees = await productModel.find({ category: "قهوه" });
 
   return (
     <div className="relative">
       <Title title=" جدیدترین قهوه ها" />
       <LinkToDisplayAllProducts href="/store/COFFEES" />
-      <div className="latestProductsParent">
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <GetLatestCoffee />
+      </HydrationBoundary>
+      {/* <div className="latestProductsParent">
         {coffees?.slice(0, 4).map((coffee: any) => (
           <Product
             imgUrl={`images/${coffee.image}`}
@@ -25,9 +39,10 @@ export default async function LatestCoffee({}: Props) {
             key={coffee._id}
           />
         ))}
-      </div>
+      </div> */}
       {/* amazing background */}
       <div className="latestProductsAmazingBackGround" />
     </div>
   );
-}
+};
+export default LatestCoffee;
