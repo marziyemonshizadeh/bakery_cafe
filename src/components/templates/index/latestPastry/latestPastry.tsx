@@ -1,21 +1,31 @@
 import LinkToDisplayAllProducts from "@/components/modules/LinkToDisplayAllProducts/LinkToDisplayAllProducts";
-import Product from "@/components/modules/product/product";
 import Title from "@/components/modules/titleSection/titleSection";
-import productModel from "@/models/product";
-import connectToDB from "@/utils/db";
+import { fetchProducts } from "@/fetcher/fetchProducts";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
+import GetLatestPastry from "./getLatestPastry";
 
 export default async function LatestPastry() {
-  connectToDB();
-  const pastries = await productModel.find({ category: "شیرینی" });
-
+  // connectToDB();
+  // const pastries = await productModel.find({ category: "شیرینی" });
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
   return (
     <div className="relative">
       <Title title=" جدیدترین شیرینی ها" />
       <LinkToDisplayAllProducts href="/store/PASTRIES" />
-      <div
-        // data-aos="fade-down"
-        className="latestProductsParent"
-      >
+
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <GetLatestPastry />
+      </HydrationBoundary>
+
+      {/* <div className="latestProductsParent">
         {pastries?.slice(0, 4).map((pastry: any) => (
           <Product
             imgUrl={`images/${pastry.image}`}
@@ -26,7 +36,7 @@ export default async function LatestPastry() {
             key={pastry._id}
           />
         ))}
-      </div>
+      </div> */}
       {/* amazing background */}
       <div className="latestProductsAmazingBackGround" />
     </div>
