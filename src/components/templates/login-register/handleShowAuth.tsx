@@ -1,6 +1,6 @@
 "use client";
 
-import ForgetPas from "@/components/templates/login-register/forgetPas";
+import ForgetPass from "@/components/templates/login-register/forgetPass";
 import Login from "@/components/templates/login-register/login";
 import Register from "@/components/templates/login-register/register";
 import SendSms from "@/components/templates/login-register/sendSms";
@@ -9,9 +9,7 @@ import VerifyCode from "@/components/templates/login-register/verifyCode";
 import { authTypes } from "@/utils/constants";
 import { useState } from "react";
 
-type HandleShowAuthProps = {};
-
-function HandleShowAuth({}: HandleShowAuthProps) {
+function HandleShowAuth() {
   const [authType, setAuthType] = useState(authTypes.LOGIN);
 
   const showRegisterForm = () => setAuthType(authTypes.REGISTER);
@@ -42,7 +40,7 @@ function HandleShowAuth({}: HandleShowAuthProps) {
         <VerifyCode showloginForm={showloginForm} />
       )}
       {authType === authTypes.FORGETPASSWORD && (
-        <ForgetPas
+        <ForgetPass
           showloginForm={showloginForm}
           // showRegisterForm={showRegisterForm}
           showSetNewPasswordForm={showSetNewPasswordForm}
