@@ -1,21 +1,14 @@
 "use client";
 
+import { useGetDepartments } from "@/hooks/getDepartments";
 import { sendTicketFormValues } from "@/types/typings";
+import { showSwal } from "@/utils/helpers";
 import { SendTicketFormSchema } from "@/validators/sendTicketRegister";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 function SendTicket() {
-  const [departments, setDepartments] = useState([]);
-  useEffect(() => {
-    const getDepartments = async () => {
-      const res = await fetch("/api/departments");
-      const data = await res.json();
-      setDepartments(data);
-    };
-    getDepartments();
-  }, []);
+  const { data } = useGetDepartments();
 
   const {
     register,
@@ -30,7 +23,23 @@ function SendTicket() {
     data: sendTicketFormValues
   ) => {
     console.log("submited", data);
-    reset();
+
+    const res = await fetch("/api/tickets", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (res.status === 200) {
+      reset();
+      showSwal(
+        "تیکت شما با موفقیت ارسال شد به زودی پاسخ آنرا دریافت خواهید کرد",
+        "success",
+        "اوکی",
+        "#"
+      );
+    }
   };
   return (
     <form className="my-14" onSubmit={handleSubmit(onSubmit)}>
@@ -45,13 +54,12 @@ function SendTicket() {
           <select
             id="department"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-950 focus:border-orange-950 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-white dark:focus:border-white"
-            defaultValue={"DEFAULT"}
+            // defaultValue={"DEFAULT"}
+            required
             {...register("department", { required: true })}
           >
-            <option value="DEFAULT" disabled>
-              لطفا یک مورد را انتخاب کنید :
-            </option>
-            {departments.map((department: any, index) => {
+            <option value={-1}>لطفا یک مورد را انتخاب کنید :</option>
+            {data?.map((department: any, index) => {
               return (
                 <option value={department?._id} key={index + 1}>
                   {department?.title}
@@ -75,6 +83,7 @@ function SendTicket() {
             id="subDepartment"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-950 focus:border-orange-950 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-white dark:focus:border-whiring-white"
             defaultValue={"DEFAULT"}
+            required
             {...register("subDepartment", { required: true })}
           >
             <option value="DEFAULT" disabled>
@@ -115,12 +124,9 @@ function SendTicket() {
           <select
             id="priority"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-950 focus:border-orange-950 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-white dark:focus:border-white"
-            defaultValue={"DEFAULT"}
+            defaultValue={1}
             {...register("priority", { required: true, valueAsNumber: true })}
           >
-            <option value="DEFAULT" disabled>
-              لطفا یک مورد را انتخاب کنید :
-            </option>
             <option value={3}>زیاد</option>
             <option value={2}>متوسط</option>
             <option value={1}>کم</option>
