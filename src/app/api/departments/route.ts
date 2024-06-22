@@ -1,6 +1,11 @@
 import departmentModel from "@/models/department";
 import connectToDB from "@/utils/db";
 
+export async function GET() {
+  connectToDB();
+  const departments = await departmentModel.find({});
+  return Response.json(departments);
+}
 export async function POST(request: Request) {
   try {
     connectToDB();
