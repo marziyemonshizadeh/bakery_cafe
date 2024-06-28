@@ -1,14 +1,26 @@
-import { loginFormValues } from "@/types/typings";
-import { ZodType, z } from "zod";
+import { z } from "zod";
 
-export const LoginFormSchema: ZodType<loginFormValues> = z.object({
+export const LoginFormSchema = z.object({
   identifier: z
-    .string()
-    .min(1, {
-      message:
-        "فیلد اجباری می باشد لطفا شماره موبایل یا ایمیل خود را وارد کنید",
-    })
-    .or(z.number()),
+    .string({ required_error: "nnn" })
+    .email("ایمیل شما معتبر نمی باشد")
+    .or(
+      z
+        .string()
+        .regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/g)
+    )
+    .superRefine((val, ctx) => {
+      if (val === "") {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message:
+            "فیلد اجباری می باشد لطفا ایمیل یا شماره موبایل خو را وارد کنید",
+          path: ["required"],
+        });
+      }
+    }),
   password: z.string().min(1, { message: " فیلد اجباری می باشد" }),
   remember: z.boolean(),
 });
+
+export type LogInFormSchemaType = z.infer<typeof LoginFormSchema>;

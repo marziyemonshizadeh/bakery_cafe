@@ -1,8 +1,10 @@
 "use client";
 
-import { loginFormValues } from "@/types/typings";
 import { showSwal } from "@/utils/helpers";
-import { LoginFormSchema } from "@/validators/loginFormRegister";
+import {
+  LogInFormSchemaType,
+  LoginFormSchema,
+} from "@/validators/loginFormRegister";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -25,9 +27,9 @@ export default function Login({
     reset,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<loginFormValues>({ resolver: zodResolver(LoginFormSchema) });
-  const onSubmit: SubmitHandler<loginFormValues> = async (
-    data: loginFormValues
+  } = useForm<LogInFormSchemaType>({ resolver: zodResolver(LoginFormSchema) });
+  const onSubmit: SubmitHandler<LogInFormSchemaType> = async (
+    data: LogInFormSchemaType
   ) => {
     await fetch("api/auth/logIn", {
       method: "POST",
@@ -62,6 +64,7 @@ export default function Login({
       })
       .catch((err) => console.log("can not sent message", err));
   };
+
   return (
     <form
       className="p-6 space-y-4 md:space-y-6 sm:p-8"
@@ -84,11 +87,13 @@ export default function Login({
           id="identifier"
           placeholder="name@company.com"
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          // required
           {...register("identifier", { required: true })}
         />
         {errors.identifier && (
-          <span className="text-red-500">{errors.identifier.message}</span>
+          <span className="text-red-500">
+            {(errors.identifier as any)?.required?.message ||
+              errors?.identifier?.message}
+          </span>
         )}
       </div>
       <div>
