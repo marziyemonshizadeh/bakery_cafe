@@ -3,12 +3,12 @@ import { z } from "zod";
 export const LoginFormSchema = z.object({
   identifier: z
     .string()
-    .email("ایمیل شما معتبر نمی باشد")
+    .email("ایمیل یا شماره موبایل شما معتبر نمی باشد")
     .or(
       z
         .string()
         .regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/g, {
-          message: "شماره موبایل شما معتبر نمی باشد",
+          message: "ایمیل یا شماره موبایل شما معتبر نمی باشد",
         })
     )
     .superRefine((val, ctx) => {
