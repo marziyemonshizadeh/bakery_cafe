@@ -1,13 +1,13 @@
-export interface loginFormValues {
-  identifier: string | number;
-  password: string;
-  remember: boolean;
-}
+// export interface loginFormValues {
+//   identifier: string | number;
+//   password: string;
+//   remember: boolean | undefined;
+// }
 export interface registerFormValues {
   userName: string;
   password: string;
   email: string;
-  phoneNumber: number;
+  phoneNumber: string;
 }
 export interface loginByPhoneNumberFormValues {
   phoneNumber: number;
@@ -26,7 +26,7 @@ export interface contactFormValues {
   email: string;
   fullName: string;
   phoneNumber: string;
-  companyName: string;
+  companyName?: string | undefined;
   message: string;
 }
 export interface productFormValues {
@@ -38,7 +38,14 @@ export interface productFormValues {
 export interface accountDetailsFormValues {
   email: string;
   userName: string;
-  phoneNumber: number;
+  phoneNumber: string;
+}
+export interface sendTicketFormValues {
+  title: string;
+  message: string;
+  department: string;
+  subDepartment: string;
+  priority: number | undefined;
 }
 export interface changePasswordValues {
   password: string;
