@@ -3,7 +3,7 @@ import { generateAccessToken, hashPassword } from "@/utils/auth";
 import { roles } from "@/utils/constants";
 import connectToDB from "@/utils/db";
 import { showSwal } from "@/utils/helpers";
-import usersValidator from "@/validators/user";
+// import usersValidator from "@/validators/user";
 
 export async function POST(request: Request) {
   try {
@@ -11,18 +11,18 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { userName, email, phoneNumber, password } = body;
 
-    const validationResult = usersValidator({
-      userName,
-      email,
-      phoneNumber,
-      password,
-    });
-    if (validationResult !== true) {
-      return Response.json(
-        { message: "validation data and found your data is not valid !!" },
-        { status: 422 }
-      );
-    }
+    // const validationResult = usersValidator({
+    //   userName,
+    //   email,
+    //   phoneNumber,
+    //   password,
+    // });
+    // if (validationResult !== true) {
+    //   return Response.json(
+    //     { message: "validation data and found your data is not valid !!" },
+    //     { status: 422 }
+    //   );
+    // }
 
     if (!userName.trim()) {
       return showSwal(
