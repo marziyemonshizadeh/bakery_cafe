@@ -5,7 +5,9 @@ export default function ThemeProv({ children }) {
   const { resolvedTheme } = useTheme();
   return (
     <ThemeProvider attribute="class">
-      <div className={`${resolvedTheme === "dark" && "dark"}`}>{children}</div>
+      <div className={`${resolvedTheme === "dark" ? "dark" : "light"}`}>
+        {children}
+      </div>
     </ThemeProvider>
   );
 }

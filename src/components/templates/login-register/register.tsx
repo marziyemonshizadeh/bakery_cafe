@@ -69,11 +69,13 @@ export default function Register({ showloginForm }: RegisterProps) {
           type="userName"
           id="userName"
           placeholder=" نام کاربری"
-          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-[#d3ccbe] border border-gray-300 text-[#332721] sm:text-sm rounded-lg  outline-none  block w-full p-2.5 border-[#eacfaa67] dark:placeholder-gray-400"
           {...register("userName", { required: true })}
         />
         {errors.userName && (
-          <span className="text-red-500">{errors.userName.message}</span>
+          <span className="text-[#413a2d]  dark:text-[#eacfaa] ">
+            {errors.userName.message}
+          </span>
         )}
       </div>
 
@@ -88,11 +90,13 @@ export default function Register({ showloginForm }: RegisterProps) {
           type="email"
           id="email"
           placeholder="name@company.com"
-          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-[#d3ccbe] border border-gray-300 text-[#332721] sm:text-sm rounded-lg  outline-none  block w-full p-2.5 border-[#eacfaa67] dark:placeholder-gray-400"
           {...register("email", { required: true })}
         />
         {errors.email && (
-          <span className="text-red-500">{errors.email.message}</span>
+          <span className="text-[#413a2d]  dark:text-[#eacfaa] ">
+            {errors.email.message}
+          </span>
         )}
       </div>
 
@@ -107,11 +111,13 @@ export default function Register({ showloginForm }: RegisterProps) {
           type="phoneNumber"
           id="phoneNumber"
           placeholder="*******0935"
-          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-[#d3ccbe] border border-gray-300 text-[#332721] sm:text-sm rounded-lg  outline-none  block w-full p-2.5 border-[#eacfaa67] dark:placeholder-gray-400"
           {...register("phoneNumber", { required: true })}
         />
         {errors.phoneNumber && (
-          <span className="text-red-500">{errors.phoneNumber.message}</span>
+          <span className="text-[#413a2d]  dark:text-[#eacfaa] ">
+            {errors.phoneNumber.message}
+          </span>
         )}
       </div>
 
@@ -126,22 +132,24 @@ export default function Register({ showloginForm }: RegisterProps) {
           type="password"
           id="password"
           placeholder="••••••••"
-          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-[#d3ccbe] border border-gray-300 text-[#332721] sm:text-sm rounded-lg  outline-none  block w-full p-2.5 border-[#eacfaa67] dark:placeholder-gray-400"
           {...register("password", { required: true })}
         />
         {errors.password && (
-          <span className="text-red-500">{errors.password.message}</span>
+          <span className="text-[#413a2d]  dark:text-[#eacfaa] ">
+            {errors.password.message}
+          </span>
         )}
       </div>
 
       <button
         type="submit"
-        className="w-full text-dark bg-zinc-300 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        className="w-full bg-[#D1B48C] text-[#413a2d] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
         disabled={!isDirty || isSubmitting}
       >
         ثبت نام
       </button>
-      <p className="text-sm text-end font-light text-gray-500 dark:text-gray-400">
+      <p className="text-sm text-end font-light text-gray-500 dark:text-slate-200">
         حساب کاربری دارید؟
         <Link
           href="/login-register"

@@ -10,6 +10,16 @@
   font-weight: 1000;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #d3ccbe inset !important;
+  /* -webkit-box-shadow: 0 0 0 30px #f9fafb inset !important; */
+  /* -webkit-box-shadow: 0 0 0 30px #332721 inset !important; */
+  -webkit-text-fill-color: #332721 !important;
+}
+
 @layer components {
   .icon {
     @apply w-5 h-5 text-orange-950 dark:text-[#eacfaa] cursor-pointer;

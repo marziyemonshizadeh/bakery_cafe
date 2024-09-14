@@ -19,7 +19,7 @@ function HandleShowAuth() {
   const showForgetPassForm = () => setAuthType(authTypes.FORGETPASSWORD);
   const showSetNewPasswordForm = () => setAuthType(authTypes.SETNEWPASSWORD);
   return (
-    <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full bg-[#f2ebe2] rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-[#2F2A26] dark:border-gray-700">
       {authType === authTypes.LOGIN && (
         <Login
           showRegisterForm={showRegisterForm}
