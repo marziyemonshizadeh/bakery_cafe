@@ -1,4 +1,3 @@
-import HomePageLayout from "@/components/layouts/homePageLayout";
 import Details from "@/components/templates/product/Details";
 import HandleTab from "@/components/templates/product/handleTab";
 import productModel from "@/models/product";
@@ -22,7 +21,7 @@ async function Product({ params }: ProductProps) {
   }
 
   return (
-    <HomePageLayout>
+    <>
       <div className="relative top-28 lg:mx-36 md:mx-10 mx-2 leading-8">
         <div className="flex lg:flex-row flex-col gap-10 md:gap-60 justify-center items-center md:my-10 my-4">
           <Image
@@ -40,7 +39,7 @@ async function Product({ params }: ProductProps) {
           userID={userID}
         />
       </div>
-    </HomePageLayout>
+    </>
   );
 }
 

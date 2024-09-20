@@ -1,7 +1,7 @@
-import HomePageLayout from "@/components/layouts/homePageLayout";
 import ContactForm from "@/components/templates/ContactUs/ContactForm";
 import ContactInfo from "@/components/templates/ContactUs/ContactInfo";
 import WeblogHeader from "@/components/templates/weblog/header";
+import "leaflet/dist/images/marker-shadow.png";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ const MyMap = dynamic(() => import("@/components/templates/ContactUs/map"), {
 
 async function ContactUs() {
   return (
-    <HomePageLayout>
+    <>
       <WeblogHeader title="تماس با ما" />
       <div className="flex justify-center items-center md:flex-row flex-col lg:gap-20 md:gap-13 gap-10 md:m-24  my-16">
         <MyMap
@@ -35,10 +35,7 @@ async function ContactUs() {
             درباره فروشگاه
           </Link>
         </MyMap>
-        <MyMap
-          position={[35.72021225108499, 51.42222691580869]}
-          center={[35.72021225108499, 51.42222691580869]}
-        >
+        <MyMap position={[51.505, -0.09]} center={[51.505, -0.09]}>
           <h3 className="text-[#413a2d] dark:text-white font-semibold">
             شعبه 2
           </h3>
@@ -62,7 +59,7 @@ async function ContactUs() {
         <ContactInfo />
         <ContactForm />
       </div>
-    </HomePageLayout>
+    </>
   );
 }
 

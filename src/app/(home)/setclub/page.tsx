@@ -1,4 +1,3 @@
-import HomePageLayout from "@/components/layouts/homePageLayout";
 import HowDoIFindOutAboutMyPoints from "@/components/templates/SetClub/HowDoIFindOutAboutMyPoints";
 import HowDoIUseMyPoints from "@/components/templates/SetClub/HowDoIUseMyPoints";
 import HowToEarnPoints from "@/components/templates/SetClub/HowToEarnPoints";
@@ -7,7 +6,7 @@ import WeblogHeader from "@/components/templates/weblog/header";
 
 const SetClub = async () => {
   return (
-    <HomePageLayout>
+    <>
       <WeblogHeader title="راهنمای باشگاه مشتریان آنلاین" />
       <h2 className="text-2xl font-extrabold text-center m-10">
         راهنمای کامل و جامع باشگاه مشتریان فروشگاه آنلاین
@@ -26,7 +25,7 @@ const SetClub = async () => {
           </button>
         </div>
       </div>
-    </HomePageLayout>
+    </>
   );
 };
 

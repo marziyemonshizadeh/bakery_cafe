@@ -1,6 +1,6 @@
 import { authUser } from "@/utils/serverHelpers";
 import React from "react";
-import Navbar from "../modules/navbar/navbar";
+import Navbar from "../../components/modules/navbar/navbar";
 
 type homePageLayoutProps = { children: React.ReactNode };
 

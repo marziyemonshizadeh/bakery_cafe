@@ -1,18 +1,16 @@
-import HomePageLayout from "@/components/layouts/homePageLayout";
-import Product from "@/components/modules/product/product";
 import Header from "@/components/templates/store/header";
-import productModel from "@/models/product";
-import connectToDB from "@/utils/db";
+import GetPastries from "@/components/templates/store/pastries/getPastries";
 
-async function Pastries() {
-  connectToDB();
-  const pastries = await productModel.find({ category: "شیرینی" });
+function Pastries() {
+  // connectToDB();
+  // const pastries = await productModel.find({ category: "شیرینی" });
 
   return (
-    <HomePageLayout>
+    <>
       <div className="overflow-hidden">
         <Header imgUrl="images/Pastry/pastriyBG.jpg" />
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 my-8 mx-10">
+        <GetPastries />
+        {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 my-8 mx-10">
           {pastries.map((pastry: any) => (
             <Product
               imgUrl={`images/${pastry.image}`}
@@ -23,9 +21,9 @@ async function Pastries() {
               key={pastry._id}
             />
           ))}
-        </div>
+        </div> */}
       </div>
-    </HomePageLayout>
+    </>
   );
 }
 

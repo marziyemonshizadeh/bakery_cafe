@@ -1,9 +1,8 @@
-import HomePageLayout from "@/components/layouts/homePageLayout";
 import WeblogHeader from "@/components/templates/weblog/header";
 
 async function TermsAndConditions() {
   return (
-    <HomePageLayout>
+    <>
       <WeblogHeader title="شرایط-قوانین " />
       <div className="text-slate-600 leading-9 lg:mx-20 md:mx-10 mx-5 my-10">
         کاربر گرامی لطفاً موارد زیر را جهت استفاده بهینه از خدمات و برنامه‌‏های
@@ -200,7 +199,7 @@ async function TermsAndConditions() {
         مشاهده هرگونه تخلف، مراتب را از طریق کانال‏‌های ارتباطی ذکر شده با ما در
         میان بگذارید.
       </div>
-    </HomePageLayout>
+    </>
   );
 }
 

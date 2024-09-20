@@ -1,11 +1,10 @@
-import HomePageLayout from "@/components/layouts/homePageLayout";
 import ContactForm from "@/components/templates/ContactUs/ContactForm";
 import WeblogHeader from "@/components/templates/weblog/header";
 import { FaPhone } from "react-icons/fa";
 
 async function RegisterComplaints() {
   return (
-    <HomePageLayout>
+    <>
       <WeblogHeader title="ثبت شکایات" />
       <h2 className="font-bold text-xl text-center p-6">
         ثبت شکایات، انتقادات و پیشنهادات فروشگاه قهوه ست
@@ -28,7 +27,7 @@ async function RegisterComplaints() {
         </div>
         <ContactForm />
       </div>
-    </HomePageLayout>
+    </>
   );
 }
 
